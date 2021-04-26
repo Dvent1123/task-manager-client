@@ -20,6 +20,7 @@ const Users = () => {
     const [password_confirmation, setPasswordConfirmation] = useState('')
     const [job, setJob] = useState('')
     const [role, setRole] = useState('User')
+    const [currentUser, setCurrentUser] = useState('')
 
 
     const [loading, setLoading] = useState(true)
@@ -27,7 +28,8 @@ const Users = () => {
     const [decoded, setDecoded] = useState('')
 
     let realToken = useRef()
-
+    const parseToken = JSON.parse(token)
+    realToken.current = parseToken.token
     const socket = useContext(SocketContext)
 
     useEffect(() => {
@@ -39,16 +41,16 @@ const Users = () => {
 
 
     useEffect(()=> {
-        const parseToken = JSON.parse(token)
-        realToken.current = parseToken.token
+
         setDecoded(jwt_decode(realToken.current))
-        socket.emit('subscribe', jwt_decode(realToken.current).roomId)
+        socket.emit('subscribe', jwt_decode(realToken.current).roomId, jwt_decode(realToken.current).username)
+        setCurrentUser(decoded.username)
 
         return(() => {
-            socket.emit('unsubscribe', jwt_decode(realToken.current).roomId)
+            socket.emit('unsubscribe', jwt_decode(realToken.current).roomId, jwt_decode(realToken.current).username)
             socket.removeAllListeners()
         })        
-    }, [token, socket])
+    }, [token, socket, decoded.username])
 
 //sockets use effect
     useEffect(() => {
@@ -108,7 +110,8 @@ const Users = () => {
             password: password,
             password_confirmation: password_confirmation,
             role: role,
-            job: job
+            job: job,
+            currentUser: currentUser
         }
 
         socket.emit('addUser', newUser)
@@ -138,7 +141,7 @@ const Users = () => {
     const renderUsers = (user) => {
         return (
             <div key={user._id}>
-                <UsersContainer user={user} users={users} setUsers={setUsers} socket={socket}/>
+                <UsersContainer currentUser={currentUser} user={user} socket={socket}/>
                 </div>
         )
     }
@@ -146,7 +149,7 @@ const Users = () => {
     return (
             <section className="home-containers">
                 <ToastContainer />
-                <Nav />
+                <Nav token={realToken.current}/>
                 <div className="section-title">
                     <h1>Users</h1>
                     <button className="button-default" onClick={toggle}><AiFillPlusCircle size={'40px'}/></button>

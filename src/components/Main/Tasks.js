@@ -27,7 +27,8 @@ const Tasks = () => {
     const [decoded, setDecoded] = useState('')
     let realToken = useRef()
     const socket = useContext(SocketContext)
-
+    const parseToken = JSON.parse(token)
+    realToken.current = parseToken.token
 
     useEffect(() => {
         let timer = setTimeout(() => setLoading(false), 6000)
@@ -37,8 +38,6 @@ const Tasks = () => {
     }, [])
 
     useEffect(() => {
-        const parseToken = JSON.parse(token)
-        realToken.current = parseToken.token
         setDecoded(jwt_decode(realToken.current))
         socket.emit('subscribe', jwt_decode(realToken.current).roomId,jwt_decode(realToken.current).username)
         setCreatedBy(decoded.username)
@@ -144,7 +143,7 @@ const Tasks = () => {
     const renderTasks = (filteredTask) => {
         return (
             <div key={filteredTask._id}>
-                <TasksContainer users={users} task={filteredTask} tasks={tasks} setTasks={setTasks} socket={socket}/>
+                <TasksContainer userName={createdBy} users={users} task={filteredTask} socket={socket}/>
             </div>
         )
     }
@@ -152,7 +151,7 @@ const Tasks = () => {
     return (
             <section className="home-containers">
                 <ToastContainer />
-                <Nav />
+                <Nav token={realToken.current}/>
                 <div className="section-title">
                     <h1>Tasks</h1>
                     <button className="button-default" onClick={toggle}><AiFillPlusCircle size={'40px'}/></button>

@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import UsersModal from './Modal/UsersModal'
 import ModalContainer from './Modal/ModalContainer'
 
-const UsersContainer = ({user, users, setUsers, socket}) => {
+const UsersContainer = ({user, socket, currentUser}) => {
     const {_id, username,roomId, job, password, role} = user
     const {isShown, toggle} = ModalContainer()
 
@@ -13,7 +13,11 @@ const UsersContainer = ({user, users, setUsers, socket}) => {
 
 
     const removeUser = async () => {
-        socket.emit('deleteUser', _id)
+        const data = {
+            id: _id,
+            currentUser: currentUser
+        }
+        socket.emit('deleteUser', data)
     }
 
 
@@ -26,7 +30,8 @@ const UsersContainer = ({user, users, setUsers, socket}) => {
                 roomId: roomId,
                 password: password,
                 role: newRole,
-                job: newJob
+                job: newJob,
+                currentUser: currentUser
             }
 
         toggle()

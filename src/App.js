@@ -18,7 +18,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      {/* <NavBar /> */}
       <Switch>
         <SocketContext.Provider value={socket}>
           <PrivateRoute component={Home} token={token} path='/home' exact />

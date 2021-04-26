@@ -3,7 +3,7 @@ import {IoCheckmarkCircleSharp} from 'react-icons/io5'
 import ModalContainer from '../Helpers/Modal/ModalContainer'
 import TasksModal from './Modal/TasksModal'
 
-const TasksContainer = ({task,users, socket}) => {
+const TasksContainer = ({task,users, socket, userName}) => {
     const {assignedTo,roomId, desc, status,createdBy, _id} = task
     const {isShown, toggle} = ModalContainer()
 
@@ -13,8 +13,12 @@ const TasksContainer = ({task,users, socket}) => {
 
 
     const removeTask = async() => {
-        socket.emit('deleteTask', _id)
+        const data = {
+            id: _id,
+            userName: userName
+        }
 
+        socket.emit('deleteTask', data)
     }
 
     //where you update the tasks
@@ -27,7 +31,8 @@ const TasksContainer = ({task,users, socket}) => {
             roomId: roomId,
             assignedTo: taskAssignedTo,
             status: taskStatus,
-            desc: taskDesc
+            desc: taskDesc,
+            userName: userName
         }
 
         socket.emit('updateTask' , newTask)
