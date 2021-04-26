@@ -6,7 +6,7 @@
 
 a:link { color:white !}
 a:visited { color:white }
-a:hover { color: black }
+a:hover { color: rgb(61, 199, 114) }
 
 .landing-wrapper {
   max-width: 450px;

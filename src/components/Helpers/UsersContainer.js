@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import UsersModal from './Modal/UsersModal'
 import ModalContainer from './Modal/ModalContainer'
+import '../../assets/Tasks.css'
 
 const UsersContainer = ({user, socket, currentUser}) => {
     const {_id, username,roomId, job, password, role} = user
@@ -41,11 +42,11 @@ const UsersContainer = ({user, socket, currentUser}) => {
     return (
         <section className="second-home-container">
             <div className="second-container-center">
+                <button id="user-button" onClick={toggle}>Edit</button>
+                <button id="user-button" onClick={removeUser}>Delete</button>
                 <h3>ID: {_id} </h3>
                 <h3>Name: {username} </h3>
                 <h3>Specialty: {job}</h3>
-                <button onClick={toggle}>Edit</button>
-                <button onClick={removeUser}>Delete</button>
             </div>
                 <UsersModal isShowing={isShown} hide={toggle} onSubmit={onSubmit} 
                 userName={userName} setUserName={setUserName}

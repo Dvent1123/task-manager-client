@@ -12,6 +12,7 @@ import { getAllUsers } from '../../services/usersServices'
 import {SocketContext} from '../../services/socketService'
 import { ToastContainer, toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.min.css'
+import '../../assets/Tasks.css'
 
 const Tasks = () => {
     const [tasks, setTasks] = useState(null)

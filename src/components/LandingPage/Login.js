@@ -70,7 +70,7 @@ const Login = () => {
                         Don't have an account? <Link to="/register">Register</Link>
                     </p>
                     <Link to="/">
-                        Back to home
+                        <i> Back to home </i>
                     </Link>
                     {/*<button type="button" className="cancelbtn">Cancel</button>*/}
                 </div>
