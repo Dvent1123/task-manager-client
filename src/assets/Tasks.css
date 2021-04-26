@@ -24,9 +24,11 @@
     width:auto;
     border-radius: 20px;
 }
+.second-home-container {
+    background-image: linear-gradient( #e2fef3,#fdfcfb);
+}
 .second-container-center {
     width:100%;
     margin:1px 0 1px 0;
-    border-width:medium  medium thin medium;
-    border-radius: 14px;
+    border-width:medium 0 medium 0 ;
 }
