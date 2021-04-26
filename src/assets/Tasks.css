@@ -1,0 +1,34 @@
+.home-containers{
+    background-image: radial-gradient(#fdfcfb , #e2d1c3);
+}
+.section-title {
+    padding:20px;
+}
+.section-container {
+    width: 100%;
+}
+.button-default {
+    color:black;
+}
+.default_button {
+    color:black;
+    margin-left:-135px !important;
+}
+#task-button {
+    width:auto;
+    margin-top:25px;
+    color:white !important;
+    border-radius: 20px;
+}
+#user-button {
+    width:auto;
+    border-radius: 20px;
+}
+.second-home-container {
+    background-image: linear-gradient( #e2fef3,#fdfcfb);
+}
+.second-container-center {
+    width:100%;
+    margin:1px 0 1px 0;
+    border-width:medium 0 medium 0 ;
+}

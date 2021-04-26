@@ -2,6 +2,7 @@ import React, {useState } from 'react'
 import {IoCheckmarkCircleSharp} from 'react-icons/io5'
 import ModalContainer from '../Helpers/Modal/ModalContainer'
 import TasksModal from './Modal/TasksModal'
+import '../../assets/Tasks.css'
 
 const TasksContainer = ({task,users, socket, userName}) => {
     const {assignedTo,roomId, desc, status,createdBy, _id} = task
@@ -43,11 +44,11 @@ const TasksContainer = ({task,users, socket, userName}) => {
     return (
         <section className="second-home-container">
             <div className="second-container-center">
-                <h3>Assigned To: {assignedTo} </h3>
+                <h5>Assigned To: {assignedTo} </h5>
+                <button id="task-button" className="default_button" onClick={toggle}>Edit</button>
+                <button id="task-button" onClick={removeTask}>Delete</button>
                 <h3>Task: {desc} </h3>
-                <button className="default-button" onClick={toggle}>Edit</button>
-                <button onClick={removeTask}>Delete</button>
-                <IoCheckmarkCircleSharp size={'50px'}/>
+                <IoCheckmarkCircleSharp size={'55px'}/>
             </div>
                 <TasksModal isShowing={isShown} hide={toggle} onSubmit={onSubmit} 
                 assignedTo={taskAssignedTo} setAssignedTo={setTaskAssignedTo}

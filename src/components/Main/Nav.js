@@ -2,6 +2,7 @@ import React, {Fragment, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import useToken from '../../utils/useToken'
 import jwt_decode from 'jwt-decode'
+import '../../assets/Nav.css'
 
 const Nav = ({token}) => {
     let decoded = jwt_decode(token)
@@ -15,6 +16,7 @@ const Nav = ({token}) => {
 
     const nav = () => {
         return (
+                <div className='nav_menu'>
                 <ul>
                     <li className='nav-link'>
                         <Link to="/">
@@ -41,11 +43,11 @@ const Nav = ({token}) => {
                     </Fragment>
                 )}
 
-                    <li>
+                    <li className="nav_logout">
                         <button className='logout' onClick={handleLogout}>Logout</button>
                     </li>
-
-            </ul>            
+            </ul>       
+            </div>     
         )
     }
 

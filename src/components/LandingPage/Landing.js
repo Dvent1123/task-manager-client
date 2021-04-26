@@ -10,14 +10,14 @@ const Landing = () => {
                 <div className="landing-wrapper">
                     <div className="landing-content">
                         <div className="landing-title">
-                            <h1>This is the landing Page</h1>
+                            <h1>Task Manager v1</h1>
                         </div>
                         <div className="landing-links">
-                            <div className="links">
-                                <Link to="/register">Register</Link>
-                            </div>
-                            <div className="links">
+                             <div className="links">
                                 <Link to="/login">Login</Link>
+                            </div>                           
+                            <div className="links">
+                                <Link to="/register">Register Now</Link>
                             </div>
                         </div>
                     </div>
