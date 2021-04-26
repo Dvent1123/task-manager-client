@@ -2,7 +2,6 @@ import React, {useState } from 'react'
 import {IoCheckmarkCircleSharp} from 'react-icons/io5'
 import ModalContainer from '../Helpers/Modal/ModalContainer'
 import TasksModal from './Modal/TasksModal'
-import '../../assets/Tasks.css'
 
 const TasksContainer = ({task,users, socket, userName}) => {
     const {assignedTo,roomId, desc, status,createdBy, _id} = task

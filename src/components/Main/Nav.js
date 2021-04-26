@@ -1,8 +1,6 @@
-import React, {Fragment, useEffect} from 'react'
+import React, {Fragment} from 'react'
 import { Link } from 'react-router-dom'
-import useToken from '../../utils/useToken'
 import jwt_decode from 'jwt-decode'
-import '../../assets/Nav.css'
 
 const Nav = ({token}) => {
     let decoded = jwt_decode(token)
@@ -56,18 +54,6 @@ const Nav = ({token}) => {
     <Fragment>
         {nav()}
     </Fragment>
-    //     <div className="home-container">
-    //         <div className="nav-container">
-    //         <ul className="nav-inner">
-    //             <li className="nav-item">
-    //             <Link to="/tasks" className="nav-link">Tasks</Link>
-    //             </li>
-    //             <li className="nav-item">
-    //             <Link to="/users" className="nav-link">Users</Link>
-    //             </li>
-    //         </ul>
-    //         </div>
-    //     </div>
     )
 }
 

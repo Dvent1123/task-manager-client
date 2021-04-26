@@ -1,6 +1,5 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import '../../assets/Landing.css'
 
 
 const Landing = () => {
@@ -23,8 +22,6 @@ const Landing = () => {
                     </div>
                 </div>
             </div>
-
-                {/* <Route exact path='/register' component={Register} /> */}
         </>
     )
 }

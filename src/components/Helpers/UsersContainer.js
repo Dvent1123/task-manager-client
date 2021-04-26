@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import UsersModal from './Modal/UsersModal'
 import ModalContainer from './Modal/ModalContainer'
-import '../../assets/Tasks.css'
 
 const UsersContainer = ({user, socket, currentUser}) => {
     const {_id, username,roomId, job, password, role} = user

@@ -4,8 +4,6 @@ import {Home} from './components/Main/Home'
 import Tasks from './components/Main/Tasks'
 import Users from './components/Main/Users'
 import Landing from './components/LandingPage/Landing'
-///navbar
-import NavBar from './components/NavBar'
 import Register from './components/LandingPage/Register'
 import Login from './components/LandingPage/Login'
 import useToken from './utils/useToken'
@@ -18,7 +16,6 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      {/* <NavBar /> */}
       <Switch>
         <SocketContext.Provider value={socket}>
           <PrivateRoute component={Home} token={token} path='/home' exact />
