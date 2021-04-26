@@ -7,10 +7,10 @@ import socketIoClient from 'socket.io-client'
         if(tokenString) {
             const parseToken = JSON.parse(tokenString)
             const realToken = parseToken.token
-            return socketIoClient('http://localhost:5000', {transports: ['websocket', 'polling'], auth: {token: realToken}})
+            return socketIoClient(`${process.env.REACT_APP_API}`, {transports: ['websocket', 'polling'], auth: {token: realToken}})
         }
 
-        return socketIoClient('http://localhost:5000')
+        return socketIoClient(`${process.env.REACT_APP_API}`)
     }
 
 export const socket = getSocket()
