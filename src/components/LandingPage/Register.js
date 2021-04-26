@@ -45,14 +45,10 @@ const Register = () => {
         <div className='register'>
             <ToastContainer />
             <div className="register-wrapper">
-            <Link to="/" className="btn-flat waves-effect">
-              <i>Back to home</i> 
-            </Link>
                 <form onSubmit={onSubmit}>
                     <div className="container">
                         <h1>Register</h1>
                         <p>Please fill in this form to create an account.</p>
-                        <p>Already have an account? <Link to="/login">Log in</Link> </p>
 
                         <hr/>
 
@@ -71,6 +67,9 @@ const Register = () => {
 
                     <div className="container signin">
                         <p>Already have an account? <Link to="/login">Log in</Link> </p>
+                        <Link to="/" className="btn-flat waves-effect">
+                         <i>Back to home</i> 
+                        </Link>
                     </div>
                 </form>
             </div>
