@@ -41,36 +41,40 @@ const Register = () => {
     }
 
     return (
-        <div className='register'>
-            <ToastContainer />
-            <div className="register-wrapper">
-                <form onSubmit={onSubmit}>
-                    <div className="container">
-                        <h1>Register</h1>
-                        <p>Please fill in this form to create an account.</p>
+        <div className="wrapper">
+                <ToastContainer />
+            <div className="container">
+                <div className="login-wrapper">
+                    <form className='modal-form' onSubmit={onSubmit}>
+                        <div className="form-group">
+                            <h1>Register</h1>
+                            <br></br>
+                            <p>Please fill in this form to create an account.</p>
 
-                        <hr/>
-
-                        <label htmlFor="username"><b>Username</b></label>
-                        <input type="text" value={userName} onChange={(e) => setUserName(e.target.value)} placeholder="Enter Username" name="username" id="username"/>
-
-                        <label htmlFor="psw"><b>Password</b></label>
-                        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter Password" name="psw" id="psw" required />
-
-                        <label htmlFor="psw-repeat"><b>Repeat Password</b></label>
-                        <input type="password" value={password2} onChange={(e) => setPassword2(e.target.value)} placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required />
-                        <hr/>
-
-                        <button type="submit" className="registerbtn">Register</button>
-                    </div>
-
-                    <div className="container signin">
-                        <p>Already have an account? <Link to="/login">Log in</Link> </p>
-                        <Link to="/" className="btn-flat waves-effect">
-                         <i>Back to home</i> 
-                        </Link>
-                    </div>
-                </form>
+                        </div>
+                        <div className="form-group">
+                            <label className='label-styling' htmlFor="username"><b>Username</b></label>
+                            <input className='option-styling' type="text" value={userName} onChange={(e) => setUserName(e.target.value)} placeholder="Enter Username" name="username" id="username"/>
+                        </div>
+                        <div className="form-group">
+                            <label className='label-styling' htmlFor="psw"><b>Password</b></label>
+                            <input className='option-styling' type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Enter Password" name="psw" id="psw" required />        
+                        </div>
+                        <div className="form-group">
+                            <label className='label-styling' htmlFor="psw-repeat"><b>Repeat Password</b></label>
+                            <input className='option-styling' type="password" value={password2} onChange={(e) => setPassword2(e.target.value)} placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required />                            
+                        </div>
+                        <div className="form-group">
+                            <button type="submit" className="task-button">Register</button>
+                        </div>
+                        <div className="form-group" style={{backgroundColor:'#bbb'}}>
+                                <p>Already have an account? <Link to="/login">Log in</Link> </p>
+                                <Link to="/" className="btn-flat waves-effect">
+                                <i>Back to home</i> 
+                                </Link>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     )

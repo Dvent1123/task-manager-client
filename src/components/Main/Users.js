@@ -44,13 +44,13 @@ const Users = () => {
 
         setDecoded(jwt_decode(realToken.current))
         socket.emit('subscribe', jwt_decode(realToken.current).roomId, jwt_decode(realToken.current).username)
-        setCurrentUser(decoded.username)
+        setCurrentUser({username: decoded.username,role: decoded.role})
 
         return(() => {
             socket.emit('unsubscribe', jwt_decode(realToken.current).roomId, jwt_decode(realToken.current).username)
             socket.removeAllListeners()
         })        
-    }, [token, socket, decoded.username])
+    }, [token, socket, decoded.username, decoded.role])
 
 //sockets use effect
     useEffect(() => {
@@ -111,7 +111,7 @@ const Users = () => {
             password_confirmation: password_confirmation,
             role: role,
             job: job,
-            currentUser: currentUser
+            currentUser: currentUser.username
         }
 
         socket.emit('addUser', newUser)
@@ -147,37 +147,41 @@ const Users = () => {
     }
 
     return (
-            <section className="home-containers">
+        <div className="wrapper">
                 <ToastContainer />
                 <Nav token={realToken.current}/>
-                <div className="section-title">
-                    <h1>Users</h1>
-                    <button className="button-default" onClick={toggle}><AiFillPlusCircle size={'40px'}/></button>
-                </div>
-                <UsersModal isShowing={isShown} hide={toggle} onSubmit={onSubmit} 
-                userName={userName} setUserName={setUserName}
-                password={password} setPassword={setPassword}
-                password_confirmation={password_confirmation} setPasswordConfirmation={setPasswordConfirmation}
-                role={role} setRole={setRole}
-                job={job} setJob={setJob}/>
-                <section className="section-container">
-                        { loading === false ?
-                            (<div className="users">
-                            {
-                                (users && users.length > 0) ? (
-                                    users.map(user => {
-                                        return renderUsers(user)
-                                    })
-                                ) :(
-                                        <p>No Users found</p>
+            <div className="container">
+                <section className="whole-section-containers">
+                    <div className="section-header">
+                        <h1>Users</h1>
+                        <button className="add-btn" onClick={toggle}><AiFillPlusCircle size={'40px'}/></button>
+                    </div>
+                    <UsersModal isShowing={isShown} hide={toggle} onSubmit={onSubmit} 
+                        userName={userName} setUserName={setUserName}
+                        password={password} setPassword={setPassword}
+                        password_confirmation={password_confirmation} setPasswordConfirmation={setPasswordConfirmation}
+                        role={role} setRole={setRole}
+                        job={job} setJob={setJob}/>
+                    <section className="section-container">
+                            { loading === false ?
+                                (<div className="tasks">
+                                {
+                                    (users && users.length > 0) ? (
+                                        users.map(user => {
+                                            return renderUsers(user)
+                                        })
+                                    ) :(
+                                            <p>No Users found</p>
+                                    )
+                                }
+                                </div>) : (
+                                    <Loading />
                                 )
                             }
-                            </div>) : (
-                                <Loading />
-                            )
-                        }
-                    </section>
-            </section>
+                        </section>
+                </section>
+            </div>
+        </div>
     )
 }
 

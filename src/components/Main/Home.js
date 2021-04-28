@@ -24,7 +24,12 @@ const Home = () => {
 
 
     return (
-        <Nav token={realToken.current}/>
+        <div className="wrapper">
+            <Nav token={realToken.current}/>
+        <div className="container">
+
+        </div>
+        </div>
     )
 }
 

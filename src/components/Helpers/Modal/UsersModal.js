@@ -16,29 +16,29 @@ const UsersModal = ({isShowing, hide, onSubmit,
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>                  
-                    <form onSubmit={onSubmit}>
+                    <form className='modal-form' onSubmit={onSubmit}>
                         <div className="form-group">
                             <label htmlFor="username">Username</label>
-                            <input className="form-control" id="username" value={userName} onChange={(e)=> setUserName(e.target.value)}/>
+                            <input className='option-styling' id="username" value={userName} onChange={(e)=> setUserName(e.target.value)}/>
                         </div>
                         <div className="form-group">
                             <label htmlFor="password">Password</label>
-                            <input className="form-control" id="password" value={password} onChange={(e)=> setPassword(e.target.value)} disabled={disabled}/>
+                            <input className='option-styling' id="password" value={password} onChange={(e)=> setPassword(e.target.value)} disabled={disabled}/>
                         </div>
                         <div className="form-group">
                             <label htmlFor="job">Job</label>
-                            <input className="form-control" id="job" value={job} onChange={(e)=> setJob(e.target.value)}/>
+                            <input className='option-styling' id="job" value={job} onChange={(e)=> setJob(e.target.value)}/>
                         </div>
                         {/* This can stay for now but gonna have to get values from database */}
                         <div className="form-group">
                             <label htmlFor="role">Security Role: </label>
-                            <select id="role" value={role} onChange={(e)=> setRole(e.target.value)}>
-                                <option value="user">User</option>
-                                <option value="admin">Admin</option>
+                            <select className='option-styling' id="role" value={role} onChange={(e)=> setRole(e.target.value)}>
+                                <option className='option-styling' value="user">User</option>
+                                <option className='option-styling' value="admin">Admin</option>
                             </select>    
                         </div>        
                         <div className="form-group">
-                            <button className="form-button" type="submit">
+                            <button className="task-button" type="submit">
                             Submit
                             </button>
                         </div>

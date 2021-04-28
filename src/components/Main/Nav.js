@@ -10,14 +10,12 @@ const Nav = ({token}) => {
         window.location.href = './'
       }
 
-    console.log(decoded)
-
     const nav = () => {
         return (
                 <div className='nav_menu'>
                 <ul>
                     <li className='nav-link'>
-                        <Link to="/">
+                        <Link to="/home">
                             Home
                         </Link>
                     </li>
@@ -33,7 +31,7 @@ const Nav = ({token}) => {
                     </Fragment>
                 )}
 
-                {decoded.role === 'user' && (
+                {decoded.role === 'User' && (
                     <Fragment>
                         <li className="nav-item">
                         <Link to="/tasks" className="nav-link">Tasks</Link>

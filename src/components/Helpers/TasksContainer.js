@@ -41,12 +41,17 @@ const TasksContainer = ({task,users, socket, userName}) => {
 
 
     return (
-        <section className="second-home-container">
-            <div className="second-container-center">
-                <h5>Assigned To: {assignedTo} </h5>
-                <button id="task-button" className="default_button" onClick={toggle}>Edit</button>
-                <button id="task-button" onClick={removeTask}>Delete</button>
-                <h3>Task: {desc} </h3>
+        <section className="info-container">
+            <div className="info-container-center">
+                <h3 className='assigned'>Assigned To: {assignedTo} </h3>
+                <button className="task-button" onClick={toggle}>Edit</button>
+                <button className="task-button" onClick={removeTask}>Delete</button>
+                <div className="description">
+                    <h3 className='task-title'>Task: </h3>
+                    <p>
+                        {desc}
+                    </p>
+                </div>
                 <IoCheckmarkCircleSharp size={'55px'}/>
             </div>
                 <TasksModal isShowing={isShown} hide={toggle} onSubmit={onSubmit} 
