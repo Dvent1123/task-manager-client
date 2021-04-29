@@ -10,7 +10,7 @@ const Nav = ({token}) => {
         window.location.href = './'
       }
 
-    const nav = () => {
+    const renderNav = () => {
         return (
                 <div className='nav_menu'>
                 <ul>
@@ -50,7 +50,7 @@ const Nav = ({token}) => {
     return (
 
     <Fragment>
-        {nav()}
+        {renderNav()}
     </Fragment>
     )
 }

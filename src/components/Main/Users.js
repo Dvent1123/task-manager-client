@@ -163,6 +163,17 @@ const Users = () => {
                         role={role} setRole={setRole}
                         job={job} setJob={setJob}/>
                     <section className="section-container">
+                        <div className="info-container">
+                            <div className="info-container-center">
+                                <h3 className="task-title">Name: </h3>
+                                <div className="description">
+                                    <h3 className="task-title">Role: </h3>
+                                    <h3 className="task-title">Job Title:</h3>
+                                </div>
+                                <h3 className="task-title">Actions: </h3>
+                            </div>
+                        </div>
+
                             { loading === false ?
                                 (<div className="tasks">
                                 {

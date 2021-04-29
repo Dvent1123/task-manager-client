@@ -172,9 +172,14 @@ const Tasks = () => {
                         status={status} setStatus={setStatus}
                         users={users} createdBy={createdBy} />
                     <section className="section-container">
-                        <div className="section-title">
-                            <h2>Not Complete</h2>
-                        </div>
+                        <section className="info-container">
+                                <div className="info-container-center">
+                                    <h3 className='assigned'>Assigned To:</h3>
+                                    <h3 className='assigned'>Description:  </h3>
+                                    <h3 className='assigned'>Status: </h3>
+                                    <h3 className='assigned'>Actions:  </h3>
+                                </div>
+                            </section>
                                 { loading === false ?
                                     (<div className="tasks">
                                         {(tasks && tasks.length > 0) ? (
@@ -185,15 +190,11 @@ const Tasks = () => {
                                             //come back and change this to something else
                                             <p>No tasks found</p>
                                         )}
-                                    </div>) : (
+                                    </div>
+                                    ) : (
                                         <Loading />
                                     )
                                 }
-                        </section>
-                    <section className="section-container">
-                        <div className="section-title">
-                            <h2>In Progress</h2>
-                        </div>
                                 { loading === false ?
                                     (<div className="tasks">
                                         {(tasks && tasks.length > 0) ? (
@@ -205,14 +206,9 @@ const Tasks = () => {
                                             <p>No tasks found</p>
                                         )}
                                     </div>) : (
-                                        <Loading />
+                                        <div></div>
                                     )
                                 }
-                    </section>
-                    <section className="section-container">
-                        <div className="section-title">
-                            <h2>Pending Approval</h2>
-                        </div>
                                 { loading === false ?
                                     (<div className="tasks">
                                         {(tasks && tasks.length > 0) ? (
@@ -224,8 +220,8 @@ const Tasks = () => {
                                             <p>No tasks found</p>
                                         )}
                                     </div>) : (
-                                        <Loading />
-                                    )
+                                        <div></div>
+                                        )
                                 }
                     </section>
                 </section>

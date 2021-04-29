@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import UsersModal from './Modal/UsersModal'
 import ModalContainer from './Modal/ModalContainer'
 
 const UsersContainer = ({user, socket, currentUser}) => {
     const {_id, username,roomId, job, password, role} = user
     const {isShown, toggle} = ModalContainer()
-    const { username: currentUserName, role: currentUserRole } = currentUser
+    const { username: currentUserName } = currentUser
 
     const [userName, setUserName] = useState(username)
     const [newJob, setNewJob] = useState(job)
     const [newRole, setNewRole] = useState(role)
-    const [disabled, setDisabled] = useState(true)
+    // const [disabled, setDisabled] = useState(true)
 
     // useEffect(() => {
     //     authorizedToChangePassword(currentUserRole, currentUserName)
@@ -51,17 +51,17 @@ const UsersContainer = ({user, socket, currentUser}) => {
     return (
         <section className="info-container">
             <div className="info-container-center">
-                <h3 className="task-title">Name: {username} </h3>
+                <h3 className="task-title">{username} </h3>
+                <div className="description">
+                    <h3 className="task-title">{role} </h3>
+                    <h3 className="task-title">{job}</h3>
+                </div>
                 <button className="task-button" onClick={toggle}>Edit</button>
                 <button className="task-button" onClick={removeUser}>Delete</button>
-                <div className="description">
-                    <h3 className="task-title">Role: {role} </h3>
-                    <h3 className="task-title">Specialty: {job}</h3>
-                </div>
             </div>
                 <UsersModal isShowing={isShown} hide={toggle} onSubmit={onSubmit} 
                 userName={userName} setUserName={setUserName}
-                disabled={disabled}
+                disabled={true}
                 role={newRole} setRole={setNewRole}
                 job={newJob} setJob={setNewJob}/>
         </section>
