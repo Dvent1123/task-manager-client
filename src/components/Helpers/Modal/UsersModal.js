@@ -5,7 +5,6 @@ const UsersModal = ({isShowing, hide, onSubmit,
     userName, setUserName,
     password, setPassword,
     role, setRole,
-    disabled,
     job, setJob}) => isShowing ? ReactDom.createPortal(
     <> 
         <div className="modal-overlay">
@@ -23,7 +22,7 @@ const UsersModal = ({isShowing, hide, onSubmit,
                         </div>
                         <div className="form-group">
                             <label htmlFor="password">Password</label>
-                            <input className='option-styling' id="password" value={password} onChange={(e)=> setPassword(e.target.value)} disabled={disabled}/>
+                            <input className='option-styling' id="password" value={password} onChange={(e)=> setPassword(e.target.value)} disabled/>
                         </div>
                         <div className="form-group">
                             <label htmlFor="job">Job</label>

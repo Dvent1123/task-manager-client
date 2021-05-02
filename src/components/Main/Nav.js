@@ -28,6 +28,9 @@ const Nav = ({token}) => {
                         <li className="nav-item">
                         <Link to="/users" className="nav-link">Users</Link>
                         </li>
+                        <li className="nav-item">
+                        <Link to="/settings" className="nav-link">Settings</Link>
+                        </li>
                     </Fragment>
                 )}
 
@@ -36,6 +39,9 @@ const Nav = ({token}) => {
                         <li className="nav-item">
                         <Link to="/tasks" className="nav-link">Tasks</Link>
                         </li> 
+                        <li className="nav-item">
+                        <Link to="/settings" className="nav-link">Settings</Link>
+                        </li>
                     </Fragment>
                 )}
 

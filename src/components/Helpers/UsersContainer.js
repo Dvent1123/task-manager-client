@@ -10,17 +10,6 @@ const UsersContainer = ({user, socket, currentUser}) => {
     const [userName, setUserName] = useState(username)
     const [newJob, setNewJob] = useState(job)
     const [newRole, setNewRole] = useState(role)
-    // const [disabled, setDisabled] = useState(true)
-
-    // useEffect(() => {
-    //     authorizedToChangePassword(currentUserRole, currentUserName)
-    // }, [currentUserRole, currentUserName])
-
-    // const authorizedToChangePassword = (currentName) => {
-    //     if(username === currentName) {
-    //         setDisabled(false)
-    //     }
-    // }
 
     const removeUser = async () => {
         const data = {
@@ -61,7 +50,6 @@ const UsersContainer = ({user, socket, currentUser}) => {
             </div>
                 <UsersModal isShowing={isShown} hide={toggle} onSubmit={onSubmit} 
                 userName={userName} setUserName={setUserName}
-                disabled={true}
                 role={newRole} setRole={setNewRole}
                 job={newJob} setJob={setNewJob}/>
         </section>
