@@ -13,12 +13,8 @@ const Landing = () => {
                             <h1>Task Manager v1</h1>
                         </div>
                         <div className="landing-links">
-                             <div className="links">
-                                <Link to="/login">Login</Link>
-                            </div>                           
-                            <div className="links">
-                                <Link to="/register">Register Now</Link>
-                            </div>
+                        <Link to="/login"> <div className="links"> Login </div></Link>                         
+                           <Link to="/register"> <div className="links"> Register Now </div></Link> 
                         </div>
                     </div>
                 </div>
