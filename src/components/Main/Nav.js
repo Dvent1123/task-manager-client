@@ -1,8 +1,6 @@
-import React, {Fragment, useEffect} from 'react'
+import React, {Fragment} from 'react'
 import { Link } from 'react-router-dom'
-import useToken from '../../utils/useToken'
 import jwt_decode from 'jwt-decode'
-import '../../assets/Nav.css'
 
 const Nav = ({token}) => {
     let decoded = jwt_decode(token)
@@ -12,14 +10,12 @@ const Nav = ({token}) => {
         window.location.href = './'
       }
 
-    console.log(decoded)
-
-    const nav = () => {
+    const renderNav = () => {
         return (
                 <div className='nav_menu'>
                 <ul>
                     <li className='nav-link'>
-                        <Link to="/">
+                        <Link to="/home">
                             Home
                         </Link>
                     </li>
@@ -32,14 +28,20 @@ const Nav = ({token}) => {
                         <li className="nav-item">
                         <Link to="/users" className="nav-link">Users</Link>
                         </li>
+                        <li className="nav-item">
+                        <Link to="/settings" className="nav-link">Settings</Link>
+                        </li>
                     </Fragment>
                 )}
 
-                {decoded.role === 'user' && (
+                {decoded.role === 'User' && (
                     <Fragment>
                         <li className="nav-item">
                         <Link to="/tasks" className="nav-link">Tasks</Link>
                         </li> 
+                        <li className="nav-item">
+                        <Link to="/settings" className="nav-link">Settings</Link>
+                        </li>
                     </Fragment>
                 )}
 
@@ -54,20 +56,8 @@ const Nav = ({token}) => {
     return (
 
     <Fragment>
-        {nav()}
+        {renderNav()}
     </Fragment>
-    //     <div className="home-container">
-    //         <div className="nav-container">
-    //         <ul className="nav-inner">
-    //             <li className="nav-item">
-    //             <Link to="/tasks" className="nav-link">Tasks</Link>
-    //             </li>
-    //             <li className="nav-item">
-    //             <Link to="/users" className="nav-link">Users</Link>
-    //             </li>
-    //         </ul>
-    //         </div>
-    //     </div>
     )
 }
 

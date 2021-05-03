@@ -15,37 +15,36 @@ const TasksModal = ({isShowing, hide, onSubmit,
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>                  
-                    <form onSubmit={onSubmit}>
-                        {/* This can stay for now but gonna have to get values from database */}
+                    <form className='modal-form' onSubmit={onSubmit}>
                         <div className="form-group">
-                            <label htmlFor="assignedTo">Task Created By: {createdBy}</label>
+                            <label className='option-styling' htmlFor="assignedTo">Task Created By: {createdBy}</label>
                         </div>       
                         <div className="form-group">
-                            <label htmlFor="assignedTo">Task Assigned To: </label>
-                            <select id="assignedTo" value={assignedTo} onChange={(e)=> setAssignedTo(e.target.value)}>
-                                <option value="None">None</option>
+                            <label className='label-styling' htmlFor="assignedTo">Task Assigned To: </label>
+                            <select className='option-styling' value={assignedTo} onChange={(e)=> setAssignedTo(e.target.value)}>
+                                <option className='option-styling' value="None">None</option>
                                 {
                                             users.map((user, index) => {
-                                                return <option key={index} value={user}>{user}</option>
+                                                return <option className='option-styling' key={index} value={user}>{user}</option>
                                             })
                                 }
                             </select>    
                         </div>
                         <div className="form-group">
                             <label htmlFor="desc">Description of Task</label>
-                            <textarea className="form-input" value={desc} onChange={(e) => setDesc(e.target.value)} rows="5"></textarea>
+                            <textarea className='option-styling' value={desc} onChange={(e) => setDesc(e.target.value)} rows="5"></textarea>
                         </div>
                         <div className="form-group">
                             <label htmlFor="status">Status of Tasks: </label>
-                            <select id="status" value={status} onChange={(e)=> setStatus(e.target.value)}>
-                                <option value="0">Select a Status</option>
-                                <option value="1">Not Complete</option>
-                                <option value="2">In Progress</option>
-                                <option value="3">Pending Approval</option>
+                            <select className='option-styling' value={status} onChange={(e)=> setStatus(e.target.value)}>
+                                <option className='option-styling' value="0">Select a Status</option>
+                                <option className='option-styling' value="1">Not Complete</option>
+                                <option className='option-styling' value="2">In Progress</option>
+                                <option className='option-styling' value="3">Pending Approval</option>
                             </select>    
                         </div>
                         <div className="form-group">
-                            <button className="form-button" type="submit">
+                            <button className="task-button" type="submit">
                             Submit
                             </button>
                         </div>

@@ -3,9 +3,8 @@ import {BrowserRouter, BrowserRouter as Switch} from 'react-router-dom'
 import {Home} from './components/Main/Home'
 import Tasks from './components/Main/Tasks'
 import Users from './components/Main/Users'
+import Settings from './components/Main/Settings'
 import Landing from './components/LandingPage/Landing'
-///navbar
-import NavBar from './components/NavBar'
 import Register from './components/LandingPage/Register'
 import Login from './components/LandingPage/Login'
 import useToken from './utils/useToken'
@@ -18,7 +17,6 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      {/* <NavBar /> */}
       <Switch>
         <SocketContext.Provider value={socket}>
           <PrivateRoute component={Home} token={token} path='/home' exact />
@@ -27,6 +25,7 @@ const App = () => {
           <PublicRoute restricted={true} token={token} component={Login} path='/login' exact/>
           <PrivateRoute component={Tasks} token={token} path='/tasks' exact />
           <PrivateRoute component={Users} token={token} path='/users' exact />
+          <PrivateRoute component={Settings} token={token} path='/settings' exact />
         </SocketContext.Provider>
       </Switch>
     </BrowserRouter>

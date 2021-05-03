@@ -1,22 +1,20 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import UsersModal from './Modal/UsersModal'
 import ModalContainer from './Modal/ModalContainer'
-import '../../assets/Tasks.css'
 
 const UsersContainer = ({user, socket, currentUser}) => {
     const {_id, username,roomId, job, password, role} = user
     const {isShown, toggle} = ModalContainer()
+    const { username: currentUserName } = currentUser
 
     const [userName, setUserName] = useState(username)
     const [newJob, setNewJob] = useState(job)
     const [newRole, setNewRole] = useState(role)
-    const [disabled, setDisabled] = useState(true)
-
 
     const removeUser = async () => {
         const data = {
             id: _id,
-            currentUser: currentUser
+            currentUser: currentUserName
         }
         socket.emit('deleteUser', data)
     }
@@ -32,7 +30,7 @@ const UsersContainer = ({user, socket, currentUser}) => {
                 password: password,
                 role: newRole,
                 job: newJob,
-                currentUser: currentUser
+                currentUser: currentUserName
             }
 
         toggle()
@@ -40,17 +38,18 @@ const UsersContainer = ({user, socket, currentUser}) => {
     }
 
     return (
-        <section className="second-home-container">
-            <div className="second-container-center">
-                <button id="user-button" onClick={toggle}>Edit</button>
-                <button id="user-button" onClick={removeUser}>Delete</button>
-                <h3>ID: {_id} </h3>
-                <h3>Name: {username} </h3>
-                <h3>Specialty: {job}</h3>
+        <section className="info-container">
+            <div className="info-container-center">
+                <h3 className="task-title">{username} </h3>
+                <div className="description">
+                    <h3 className="task-title">{role} </h3>
+                    <h3 className="task-title">{job}</h3>
+                </div>
+                <button className="task-button" onClick={toggle}>Edit</button>
+                <button className="task-button" onClick={removeUser}>Delete</button>
             </div>
                 <UsersModal isShowing={isShown} hide={toggle} onSubmit={onSubmit} 
                 userName={userName} setUserName={setUserName}
-                disabled={disabled}
                 role={newRole} setRole={setNewRole}
                 job={newJob} setJob={setNewJob}/>
         </section>

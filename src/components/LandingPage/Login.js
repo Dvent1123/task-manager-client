@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import '../../assets/Login.css'
 import { loginUser} from '../../services/loginServices'
 import useToken from '../../utils/useToken'
 import { ToastContainer, toast} from 'react-toastify'
@@ -48,35 +47,35 @@ const Login = () => {
     }
 
     return (
-        <div className='login'>
+        <div className='wrapper'>
             <ToastContainer />
-            <div className="login-wrapper">
-                <form onSubmit={onSubmit}> 
-                {/* <div className="imgcontainer"> 
-                    <img alt="Avatar" className="avatar" />
-                    </div> */}
-                <div className="container">
-                    <label htmlFor="username"><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" value={username} onChange={(e) => setUserName(e.target.value)} name="username" required/>
+            <div className="container">
+                    <div className="login-wrapper">
+                        <form className='modal-form' onSubmit={onSubmit}> 
+                        <div className="form-group">
+                            <label className='label-styling' htmlFor="username"><b>Username</b></label>
+                            <input className='option-styling' type="text" placeholder="Enter Username" value={username} onChange={(e) => setUserName(e.target.value)} name="username" required/>
+                        </div>
+                        <div className="form-group">
+                        <label className='label-styling' htmlFor="passorw"><b>Password</b></label>
+                            <input className='option-styling' type="password" placeholder="Enter Password" value={password} onChange={(e) => setPassword(e.target.value)} name="password" required/>
+                        </div>
+                        <div className="form-group">
+                            <button className="task-button" type="submit">Login</button>                            
+                        </div>
 
-                    <label htmlFor="passorw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" value={password} onChange={(e) => setPassword(e.target.value)} name="password" required/>
-
-                    <button type="submit">Login</button>
+                        <div className="form-group" style={{backgroundColor:'#bbb'}}>
+                            <p>
+                                Don't have an account? <Link to="/register">Register</Link>
+                            </p>
+                            <Link to="/">
+                                <i> Back to home </i>
+                            </Link>
+                        </div>
+                        </form>
+                    </div>
                 </div>
-
-                <div className="container" style={{backgroundColor:'#bbb'}}>
-                    <p>
-                        Don't have an account? <Link to="/register">Register</Link>
-                    </p>
-                    <Link to="/">
-                        <i> Back to home </i>
-                    </Link>
-                    {/*<button type="button" className="cancelbtn">Cancel</button>*/}
-                </div>
-                </form>
             </div>
-        </div>
     )
 }
 

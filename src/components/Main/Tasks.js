@@ -12,7 +12,6 @@ import { getAllUsers } from '../../services/usersServices'
 import {SocketContext} from '../../services/socketService'
 import { ToastContainer, toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.min.css'
-import '../../assets/Tasks.css'
 
 const Tasks = () => {
     const [tasks, setTasks] = useState(null)
@@ -142,84 +141,92 @@ const Tasks = () => {
 
     //renders the task
     const renderTasks = (filteredTask) => {
+        if(filteredTask){
+            return (
+                <div key={filteredTask._id}>
+                    <TasksContainer userName={createdBy} users={users} task={filteredTask} socket={socket}/>
+                </div>
+            )
+    
+        }
         return (
-            <div key={filteredTask._id}>
-                <TasksContainer userName={createdBy} users={users} task={filteredTask} socket={socket}/>
+            <div>
+                <h1>No Tasks Available</h1>
             </div>
         )
     }
 
     return (
-            <section className="home-containers">
+        <div className="wrapper">
                 <ToastContainer />
                 <Nav token={realToken.current}/>
-                <div className="section-title">
-                    <h1>Tasks</h1>
-                    <button className="button-default" onClick={toggle}><AiFillPlusCircle size={'40px'}/></button>
-                </div>
-                <TasksModal isShowing={isShown} hide={toggle} onSubmit={onSubmit} 
-                assignedTo={assignedTo} setAssignedTo={setAssignedTo}
-                desc={desc} setDesc={setDesc}
-                status={status} setStatus={setStatus}
-                users={users} createdBy={createdBy} />
-                <section className="section-container">
-                    <div className="section-title">
-                        <h2>Not Complete</h2>
+            <div className="container">
+                <section className="whole-section-containers">
+                    <div className="section-header">
+                        <h1>Tasks</h1>
+                        <button className="add-btn" onClick={toggle}><AiFillPlusCircle size={'40px'}/></button>
                     </div>
-                            { loading === false ?
-                                (<div className="tasks">
-                                    {(tasks && tasks.length > 0) ? (
-                                        tasks.filter(task => task.status === 1).map(filteredTask => {
-                                         return renderTasks(filteredTask)
-                                        })
+                    <TasksModal isShowing={isShown} hide={toggle} onSubmit={onSubmit} 
+                        assignedTo={assignedTo} setAssignedTo={setAssignedTo}
+                        desc={desc} setDesc={setDesc}
+                        status={status} setStatus={setStatus}
+                        users={users} createdBy={createdBy} />
+                    <section className="section-container">
+                        <section className="info-container">
+                                <div className="info-container-center">
+                                    <h3 className='assigned'>Assigned To:</h3>
+                                    <h3 className='assigned'>Description:  </h3>
+                                    <h3 className='assigned'>Status: </h3>
+                                    <h3 className='assigned'>Actions:  </h3>
+                                </div>
+                            </section>
+                                { loading === false ?
+                                    (<div className="tasks">
+                                        {(tasks && tasks.length > 0) ? (
+                                            tasks.filter(task => task.status === 1).map(filteredTask => {
+                                                return renderTasks(filteredTask)
+                                            })
+                                        ) : (
+                                            //come back and change this to something else
+                                            <p>No tasks found</p>
+                                        )}
+                                    </div>
                                     ) : (
-                                        //come back and change this to something else
-                                        <p>No tasks found</p>
-                                    )}
-                                </div>) : (
-                                    <Loading />
-                                )
-                            }
+                                        <Loading />
+                                    )
+                                }
+                                { loading === false ?
+                                    (<div className="tasks">
+                                        {(tasks && tasks.length > 0) ? (
+                                            tasks.filter(task => task.status === 2).map(filteredTask => {
+                                                return renderTasks(filteredTask)                                        
+                                            })
+                                        ) : (
+                                            //come back and change this to something else
+                                            <p>No tasks found</p>
+                                        )}
+                                    </div>) : (
+                                        <div></div>
+                                    )
+                                }
+                                { loading === false ?
+                                    (<div className="tasks">
+                                        {(tasks && tasks.length > 0) ? (
+                                            tasks.filter(task => task.status === 3).map(filteredTask => {
+                                            return renderTasks(filteredTask)
+                                            })
+                                        ) : (
+                                            //come back and change this to something else
+                                            <p>No tasks found</p>
+                                        )}
+                                    </div>) : (
+                                        <div></div>
+                                        )
+                                }
                     </section>
-                <section className="section-container">
-                    <div className="section-title">
-                        <h2>In Progress</h2>
-                    </div>
-                            { loading === false ?
-                                (<div className="tasks">
-                                    {(tasks && tasks.length > 0) ? (
-                                        tasks.filter(task => task.status === 2).map(filteredTask => {
-                                         return renderTasks(filteredTask)
-                                        })
-                                    ) : (
-                                        //come back and change this to something else
-                                        <p>No tasks found</p>
-                                    )}
-                                </div>) : (
-                                    <Loading />
-                                )
-                            }
                 </section>
-                <section className="section-container">
-                    <div className="section-title">
-                        <h2>Pending Approval</h2>
-                    </div>
-                            { loading === false ?
-                                (<div className="tasks">
-                                    {(tasks && tasks.length > 0) ? (
-                                        tasks.filter(task => task.status === 3).map(filteredTask => {
-                                         return renderTasks(filteredTask)
-                                        })
-                                    ) : (
-                                        //come back and change this to something else
-                                        <p>No tasks found</p>
-                                    )}
-                                </div>) : (
-                                    <Loading />
-                                )
-                            }
-                </section>
-            </section>
+            </div>
+        </div>
     )
 }
 
