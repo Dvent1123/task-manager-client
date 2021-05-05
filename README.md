@@ -1,67 +1,267 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# task-manager-client
 
-## Available Scripts
+This is the client side for a MERN stack web app deployed on 
+Digital Ocean. I wanted to make this as a version of a simple to-do
+list but with my own twist. A user can register and that automatically 
+makes them the admin for their project. They can also add users by making
+an account for them and each user can be assigned a task which they will see
+on their dashboard. The app uses SocketIO to receive real time data so all users
+can update the information in real time. 
+## Authors
 
-In the project directory, you can run:
+- [@danielventura](https://github.com/Dvent1123)
+- [@brentynhanna](https://github.com/Brehtyn)
 
-### `npm start`
+  
+## Demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+   - [Todo Simply](todo-simply.com)
 
-### `npm test`
+## Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Client:** React, SCSS, Axios, SocketIO-Client, JWT-Decode
 
-### `npm run build`
+**Server:** Node, Express, MongoDB, JWT, SocketIO
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  
+## API Reference
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Get all users information
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```http
+  GET /api/users/user
+```
 
-### `npm run eject`
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `token` | `object` | **Required**. JWT token |
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### Get individual user information
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```http
+  GET /api/users
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `token` | `object` | **Required**. JWT token |
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Get all tasks
 
-## Learn More
+```http
+  GET /api/tasks
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `token` | `object` | **Required**. JWT token |
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Register User
 
-### Code Splitting
+```http
+  POST /api/login/signup
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `user` | `object` | **Required**. Object with user information |
 
-### Analyzing the Bundle Size
+#### Login User
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```http
+  POST /api/login/signin
+```
 
-### Making a Progressive Web App
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `user` | `object` | **Required**. Object with user information |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+#### Subscribe to Sockets
 
-### Advanced Configuration
+```socket
+  socket.emit('subscribe', room, username)
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `room` | `string` | **Required**. Room to subscribe to |
+| `username` | `string` | **Required**. Username of user |
 
-### Deployment
+#### Unsubscribe to Sockets
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```socket
+  socket.emit('unsubscribe', room, username)
+```
 
-### `npm run build` fails to minify
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `room` | `string` | **Required**. Room to subscribe to |
+| `username` | `string` | **Required**. Username of user |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### Update User Settings
+
+```socket
+  socket.emit('updateUserSettings', user)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `user` | `object` | **Required**. User object with updated information |
+
+#### Add User
+
+```socket
+  socket.emit('addUser', user)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `user` | `object` | **Required**. User object with updated information |
+
+#### Delete User
+
+```socket
+  socket.emit('deleteUser', data)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `data` | `object` | **Required**. Data object with user ID and username |
+
+#### Update User
+
+```socket
+  socket.emit('updateUser', user)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `user` | `object` | **Required**. User object with updated information |
+
+#### Create Task
+
+```socket
+  socket.emit('addTask', task)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `task` | `object` | **Required**. Object with task information|
+
+#### Update Task
+
+```socket
+  socket.emit('updateTask', task)
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `task` | `object` | **Required**. Object with updated task information|
+
+
+#### userToken()
+Gets the token item from sessionStorage and returns setToken
+from a React useState as saveToken and the token itself as token
+
+#### getSocket()
+Gets the token item from sessionStorage and returns a socket
+with a connection to the server or an open connection.
+
+#### handleLogout()
+Removes the items in sessionStorage and redirects to '/'
+
+#### registerNewUser(user)
+Invokes the registerUser API call.
+
+#### loginNewUser(user)
+Invokes the loginUser API call
+
+#### encodeStatus(status)
+Takes in the status of a task as a number and returns
+a string describing the status.
+
+
+
+
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`REACT_APP_API`
+
+`REACT_APP_API_SOCKETS`
+
+
+  
+## Deployment
+Deployment was done on Digital Ocean through
+and Ubuntu droplet. The server deployment is similar
+to the Client
+
+To deploy this project:
+
+SSH into your Digital Ocean Droplet using
+```bash
+ssh admin@DropletIP
+```
+Use sudo to clone the respository
+```bash
+sudo git clone @RepositoryLink
+```
+```bash
+sudo npm install
+```
+
+You must still configure NGINX and PM2 for this project to
+work on your server.
+  
+## Run Locally
+
+Make a directory for the project or cd into the project
+directory that was made while cloning the client.
+
+```bash
+mkdir my-project
+```
+
+AND/OR
+
+Go to the project directory
+
+```bash
+  cd my-project
+```
+
+Make a directory for the client and server
+
+```bash
+mkdir client
+mkdir server
+```
+
+Go into the client directory
+
+```bash
+cd client
+```
+
+Clone the project into the project directory
+
+```bash
+  git clone https://github.com/Dvent1123/calisthenics-tracker-api.git
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the project
+
+```bash
+  npm start
+```
+
+  
