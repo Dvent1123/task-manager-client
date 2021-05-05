@@ -249,7 +249,7 @@ cd client
 Clone the project into the project directory
 
 ```bash
-  git clone https://github.com/Dvent1123/calisthenics-tracker-api.git
+  git clone https://github.com/Dvent1123/task-manager-client.git
 ```
 
 Install dependencies
