@@ -47,10 +47,11 @@ const Login = () => {
     }
 
     return (
-        <div className='wrapper'>
-            <ToastContainer />
+            
             <div className="container">
-                    <div className="login-wrapper">
+                <ToastContainer />
+                <div class="form-spacer"></div>
+                    <div className="form-wrapper">
                         <form className='modal-form' onSubmit={onSubmit}> 
                         <div className="form-group">
                             <label className='label-styling' htmlFor="username"><b>Username</b></label>
@@ -75,7 +76,6 @@ const Login = () => {
                         </form>
                     </div>
                 </div>
-            </div>
     )
 }
 

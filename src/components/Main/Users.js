@@ -182,7 +182,7 @@ const Users = () => {
                                             return renderUsers(user)
                                         })
                                     ) :(
-                                            <p>No Users found</p>
+                                            <p className="landing-header">No Users found</p>
                                     )
                                 }
                                 </div>) : (

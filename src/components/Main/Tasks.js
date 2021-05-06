@@ -187,8 +187,8 @@ const Tasks = () => {
                                                 return renderTasks(filteredTask)
                                             })
                                         ) : (
-                                            //come back and change this to something else
-                                            <p>No tasks found</p>
+                                            //if there are no tasks, show nothing
+                                            <p></p>
                                         )}
                                     </div>
                                     ) : (
@@ -202,8 +202,8 @@ const Tasks = () => {
                                                 return renderTasks(filteredTask)                                        
                                             })
                                         ) : (
-                                            //come back and change this to something else
-                                            <p>No tasks found</p>
+                                            //if there are no tasks, display no task description
+                                            <p className="landing-header">No tasks found</p>
                                         )}
                                     </div>) : (
                                         <div></div>
@@ -216,8 +216,8 @@ const Tasks = () => {
                                             return renderTasks(filteredTask)
                                             })
                                         ) : (
-                                            //come back and change this to something else
-                                            <p>No tasks found</p>
+                                            //if there are no tasks, show nothing 
+                                            <p></p>
                                         )}
                                     </div>) : (
                                         <div></div>

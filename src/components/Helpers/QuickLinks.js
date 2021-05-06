@@ -16,11 +16,9 @@ const QuickLinks = ({token}) => {
                             <div className="description-overlay">
                                 <div className="description">
                                         <h1>Tasks</h1>
-                                        <h2>Actions on Tasks</h2>
+                                        <h2 >Actions on Tasks</h2>
+                                        <div id="quicklinks_divider"> </div>
                                         <p>Create, edit, delete, and assign tasks to members of your organization. Or you can check the status of each task and update it as neccessary.</p>
-                                        <p className="read-more">
-                                            Hover/Click To Start
-                                        </p>
                                     </div>  
                             </div> 
                             <div className="details">
@@ -37,10 +35,8 @@ const QuickLinks = ({token}) => {
                                 <div className="description">
                                         <h1>Users</h1>
                                         <h2>Actions on Users</h2>
+                                        <div id="quicklinks_divider"> </div>
                                         <p>Enjoy Admin privelages by being able to add, delete, and update users. Add users by creating and account for them and giving them the password you created (they can change this at any point).</p>
-                                        <p className="read-more">
-                                            Hover/Click To Start
-                                        </p>
                                     </div>  
                             </div> 
                             <div className="details">
@@ -71,9 +67,6 @@ const QuickLinks = ({token}) => {
                                             <h1>Tasks</h1>
                                             <h2>Actions on Tasks</h2>
                                             <p>Create, edit, and update tasks. Update the status of your tasks so your admin can mark them off as complete!</p>
-                                            <p className="read-more">
-                                                Hover/Click To Start
-                                            </p>
                                         </div>  
                                 </div> 
                                 <div className="details">
