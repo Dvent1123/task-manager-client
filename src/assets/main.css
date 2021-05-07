@@ -673,6 +673,8 @@ a:active {
   border-radius: 1em;
   color: white;
   font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .landing-button-container .register-link:hover {
