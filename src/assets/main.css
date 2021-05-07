@@ -731,32 +731,6 @@ a:active {
   padding: 0.5em 0;
 }
 
-.how-info-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  width: 100%;
-  padding: 3em 0;
-}
-
-.how-info-container .how-text-container {
-  width: 50%;
-  margin: 0 1.5em;
-}
-
-.how-info-container .how-image-container {
-  width: 50%;
-}
-
-.how-info-container img {
-  max-width: 100%;
-  max-height: 100%;
-}
-
 .how-subtext-container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -930,6 +904,48 @@ input[type="password"] {
   }
   .cancelbtn {
     width: 100%;
+  }
+}
+
+/* Landing Info Correction for smaller device */
+@media only screen and (max-width: 450px) {
+  .how-info-container {
+    width: 100%;
+  }
+  .how-info-container .how-text-container {
+    width: 100%;
+  }
+  .how-info-container .how-image-container {
+    width: 100%;
+  }
+  .how-info-container img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+@media only screen and (min-width: 450.5px) {
+  .how-info-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    width: 100%;
+    padding: 3em 0;
+  }
+  .how-info-container .how-text-container {
+    width: 50%;
+    margin: 0 1.5em;
+  }
+  .how-info-container .how-image-container {
+    width: 50%;
+  }
+  .how-info-container img {
+    max-width: 100%;
+    max-height: 100%;
   }
 }
 

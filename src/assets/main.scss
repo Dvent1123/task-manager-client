@@ -594,26 +594,6 @@ a:active {
   }
 }
 
-.how-info-container{
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  padding: 3em 0;
-
-  .how-text-container{
-    width: 50%;
-    margin: 0 1.5em;
-  }
-  .how-image-container{
-    width: 50%;
-  }
-  img {
-    max-width: 100%;
-    max-height: 100%;
-  }
-
-}
-
 .how-subtext-container {
   display: flex;
   flex-direction: row;
@@ -719,6 +699,53 @@ input[type="password"] {
   .cancelbtn {
     width: 100%;
   }
+}
+
+/* Landing Info Correction for smaller device */
+
+@media only screen and (max-width: 450px) {
+
+  .how-info-container{
+    
+    width: 100%;
+  
+    .how-text-container{
+      width: 100%;
+    }
+    .how-image-container{
+      width: 100%;
+    }
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  
+  }
+
+}
+
+@media only screen and (min-width: 450.5px) {
+
+  .how-info-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 3em 0;
+  
+    .how-text-container{
+      width: 50%;
+      margin: 0 1.5em;
+    }
+    .how-image-container{
+      width: 50%;
+    }
+    img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  
+  }
+
 }
 
 /* Form spacing for login/register */
