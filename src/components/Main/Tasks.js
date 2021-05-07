@@ -172,12 +172,15 @@ const Tasks = () => {
                         status={status} setStatus={setStatus}
                         users={users} createdBy={createdBy} />
                     <section className="section-container">
-                        <section className="info-container">
-                                <div className="info-container-center">
-                                    <h3 className='assigned'>Assigned To:</h3>
-                                    <h3 className='assigned'>Description:  </h3>
-                                    <h3 className='assigned'>Status: </h3>
-                                    <h3 className='assigned'>Actions:  </h3>
+                        <section className="info-container-title">
+                                <div className="info-container-center-title">
+                                    <h3 className='normal-containter-title'>Assigned</h3>
+                                    <div className="divider-task-title"> | </div>
+                                    <h3 className='description-container-title'>Description</h3>
+                                    <div className="divider-task-title"> | </div>
+                                    <h3 className='normal-containter-title'>Status</h3>
+                                    <div className="divider-task-title"> | </div>
+                                    <h3 className='normal-containter-title'>Editing</h3>
                                 </div>
                             </section>
                                 { loading === false ?

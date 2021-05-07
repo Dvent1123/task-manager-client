@@ -1,6 +1,9 @@
 import React, {useState } from 'react'
 import ModalContainer from '../Helpers/Modal/ModalContainer'
 import TasksModal from './Modal/TasksModal'
+import TrashIcon from '../../assets/trash.svg'
+import EditIcon from '../../assets/edit.svg'
+
 
 const TasksContainer = ({task,users, socket, userName}) => {
     const {assignedTo,roomId, desc, status,createdBy, _id} = task
@@ -51,15 +54,22 @@ const TasksContainer = ({task,users, socket, userName}) => {
     return (
         <section className="info-container">
             <div className="info-container-center">
-                <h3 className='assigned'>{assignedTo} </h3>
-                <div className="description">
+                <h4 className='assigned'>{assignedTo} </h4>
+                <div className="divider-task-title"> | </div>
+                <div className="tasks-description">
                     <p>
                         {desc}
                     </p>
                 </div>
-                <h3 className='assigned'>{encodeStatus(status)} </h3>
-                <button className="task-button" onClick={toggle}>Edit</button>
-                <button className="task-button" onClick={removeTask}>Delete</button>
+                <div className="divider-task-title"> | </div>
+                <h3 id="task-status" className='assigned'>{encodeStatus(status)} </h3>
+                <button className="task-button" onClick={toggle}>
+                    <img id="info-button-pictures" src={EditIcon} alt="Edit Button | Pen on paper"/>
+                </button>
+                <button className="task-button" id="delete-task-button" onClick={removeTask}>
+                    <img id="info-button-pictures" src={TrashIcon} alt="Delete Button | Trashcan"/>
+                </button>
+
             </div>
                 <TasksModal isShowing={isShown} hide={toggle} onSubmit={onSubmit} 
                 assignedTo={taskAssignedTo} setAssignedTo={setTaskAssignedTo}

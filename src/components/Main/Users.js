@@ -163,14 +163,16 @@ const Users = () => {
                         role={role} setRole={setRole}
                         job={job} setJob={setJob}/>
                     <section className="section-container">
-                        <div className="info-container">
-                            <div className="info-container-center">
-                                <h3 className="task-title">Name: </h3>
-                                <div className="description">
-                                    <h3 className="task-title">Role: </h3>
-                                    <h3 className="task-title">Job Title:</h3>
+                        <div className="info-container-title">
+                            <div className="info-container-center-title">
+                                <h3 className="task-title">Name</h3>
+                                <div className="divider-task-title"> | </div>
+                                <div className="description-container-title">
+                                    <h3 className="task-title">Role</h3>
+                                    <div className="divider-task-title"> | </div>
+                                    <h3 className="task-title">Job Title</h3>
                                 </div>
-                                <h3 className="task-title">Actions: </h3>
+                                <h3 className="task-title-right">Editing</h3>
                             </div>
                         </div>
 

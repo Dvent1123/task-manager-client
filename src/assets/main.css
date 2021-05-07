@@ -61,7 +61,10 @@ h4 {
 
 .wrapper {
   margin: 0 auto;
-  height: 100vh;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  min-height: 500px;
   background-image: radial-gradient(#fdfcfb, #e2d1c3);
   padding-bottom: 80px;
 }
@@ -155,6 +158,7 @@ a:active {
 
 .quick-actions-title {
   padding: 1em 0;
+  padding-left: 25px;
 }
 
 .blog-card {
@@ -317,8 +321,8 @@ a:active {
 }
 
 .section-header h1 {
-  width: 80%;
-  padding: 0;
+  width: 65%;
+  padding: 0 20px;
 }
 
 .section-header .add-btn {
@@ -347,7 +351,54 @@ a:active {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 100%;
+}
+
+.info-container-title {
+  width: 100%;
   margin: 0 auto;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#e2fef3), to(#fdfcfb));
+  background-image: linear-gradient(#e2fef3, #fdfcfb);
+}
+
+.info-container-center-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  border: 5px solid black;
+  padding: 1rem;
+  border-width: 0.25em 0.15em 0.25em 1.25em;
+}
+
+.normal-containter-title {
+  width: auto;
+  text-align: center;
+  padding: 0 5px 0 5px;
+}
+
+.description-container-title {
+  width: 100%;
+}
+
+#info-button-pictures {
+  width: 20px;
+  height: 20px;
+  -webkit-filter: invert(100%) sepia(6%) saturate(7500%) hue-rotate(209deg) brightness(107%) contrast(103%);
+          filter: invert(100%) sepia(6%) saturate(7500%) hue-rotate(209deg) brightness(107%) contrast(103%);
+}
+
+.divider-task-title {
+  font-weight: bold;
+  padding: 0 1rem 0 1rem;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  vertical-align: center;
+  float: left;
 }
 
 .info-container {
@@ -370,42 +421,74 @@ a:active {
   border-width: 0.25em 0.15em 0.25em 1.25em;
 }
 
-.info-container-center h3 {
-  width: 40%;
-}
-
-.info-container-center .description {
+.info-container-center .tasks-description {
   width: 100%;
+  height: 100%;
+  float: left;
 }
 
-.info-container-center button {
-  width: 10%;
-  max-width: 80px;
+.info-container-center h4 {
+  font-weight: normal;
+  width: 140px;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  overflow-wrap: break-word !important;
+  word-break: break-word;
 }
 
-.description {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+.tasks-description {
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+  height: auto;
 }
 
-.description p {
+.tasks-description p {
   font-weight: bold;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  overflow-wrap: break-word !important;
+  word-break: break-word;
+  font-weight: normal;
+}
+
+#task-status {
+  float: right;
+  width: 20px;
+  margin-right: 50px;
+  font-weight: normal;
+  font-size: .8rem;
+}
+
+.task-title {
+  float: left;
+  width: auto;
+  height: 30px;
+  vertical-align: center;
+}
+
+.task-title-right {
+  float: left;
+  width: auto;
+  height: 30px;
+  vertical-align: center;
+  padding: 0 3%;
 }
 
 .task-button {
-  width: auto;
-  color: white;
-  border-radius: 1.45em;
-  margin: 0 1em;
-  -ms-grid-column-align: center;
-      justify-self: center;
+  width: 60px !important;
+  padding: 6px 6px !important;
+  border-radius: 10px;
+  margin: 0px 5px;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(green), to(#639191));
+  background-image: linear-gradient(green, #639191);
+}
+
+#delete-task-button {
+  background-image: radial-gradient(red, darkred);
 }
 
 /* Modal */
@@ -501,7 +584,7 @@ a:active {
 }
 
 .option-styling {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.4);
   border: none;
   border-radius: 0.5em;
   font-size: 0.75;
@@ -509,7 +592,6 @@ a:active {
   padding: 0.5em;
   width: 100%;
   background-color: #e8eeef;
-  color: #8a97a0;
   -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
 }
@@ -557,10 +639,7 @@ a:active {
   height: 100%;
   margin: 2em 0;
   padding: 1em 0;
-}
-
-.landing-button-container .links {
-  padding: 1em;
+  font-size: .95rem !important;
 }
 
 .landing-button-container .login-link {

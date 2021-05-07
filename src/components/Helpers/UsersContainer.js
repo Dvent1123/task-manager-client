@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import UsersModal from './Modal/UsersModal'
 import ModalContainer from './Modal/ModalContainer'
+import TrashIcon from '../../assets/trash.svg'
+import EditIcon from '../../assets/edit.svg'
 
 const UsersContainer = ({user, socket, currentUser}) => {
     const {_id, username,roomId, job, password, role} = user
@@ -38,15 +40,21 @@ const UsersContainer = ({user, socket, currentUser}) => {
     }
 
     return (
-        <section className="info-container">
-            <div className="info-container-center">
+        <section className="info-container-title">
+            <div className="info-container-center-title">
                 <h3 className="task-title">{username} </h3>
-                <div className="description">
+                <div className="divider-task-title"> | </div>
+                <div className="description-container-title">
                     <h3 className="task-title">{role} </h3>
+                    <div className="divider-task-title"> | </div>
                     <h3 className="task-title">{job}</h3>
                 </div>
-                <button className="task-button" onClick={toggle}>Edit</button>
-                <button className="task-button" onClick={removeUser}>Delete</button>
+                <button className="task-button" onClick={toggle}>
+                    <img id="info-button-pictures" src={EditIcon} alt="Edit Button | Pen on paper"/>
+                </button>
+                <button className="task-button" id="delete-task-button" onClick={removeUser}>
+                    <img id="info-button-pictures" src={TrashIcon} alt="Delete Button | Trashcan"/> 
+                </button>
             </div>
                 <UsersModal isShowing={isShown} hide={toggle} onSubmit={onSubmit} 
                 userName={userName} setUserName={setUserName}

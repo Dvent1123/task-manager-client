@@ -13,7 +13,7 @@ const Landing = () => {
                 <img id="main_logo" src={landinglogo} alt="Task Manager Logo, a simplistic scroll with a color gradiant"/>
                     <h2>Easily Manage <wbr/> Your Tasks <wbr/> With</h2> 
                     
-                    <h1><em>TaskManager</em></h1>
+                    <h1><em>Todo Simply</em></h1>
                     <h3>
                         Have you ever wanted to have somewhere convenient to manage your tasks, employees, or just everyday
                         duties? Easily manage them all in one convenient place by registering now!
