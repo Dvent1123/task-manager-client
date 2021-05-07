@@ -321,8 +321,7 @@ a:active {
 }
 
 .section-header h1 {
-  width: 65%;
-  padding: 0 20px;
+  width: auto;
 }
 
 .section-header .add-btn {
@@ -355,7 +354,6 @@ a:active {
 
 .info-container-title {
   width: 100%;
-  margin: 0 auto;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#e2fef3), to(#fdfcfb));
   background-image: linear-gradient(#e2fef3, #fdfcfb);
 }
@@ -463,14 +461,19 @@ a:active {
 .task-title {
   float: left;
   width: auto;
-  height: 30px;
+  height: auto;
   vertical-align: center;
+}
+
+#task-user-data {
+  font-size: 15px !important;
+  font-weight: normal;
 }
 
 .task-title-right {
   float: left;
   width: auto;
-  height: 30px;
+  height: auto;
   vertical-align: center;
   padding: 0 3%;
 }
@@ -642,14 +645,18 @@ a:active {
   font-size: .95rem !important;
 }
 
+.landing-button-container .landing-links {
+  font-size: 100%;
+  width: 100%;
+}
+
 .landing-button-container .login-link {
   background-image: -webkit-gradient(linear, left top, left bottom, from(green), to(#639191));
   background-image: linear-gradient(green, #639191);
-  padding: 1.1em;
+  padding: 1rem;
   border-radius: 1em;
-  margin: 0 1em;
   color: white;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .landing-button-container .login-link:hover {
@@ -662,11 +669,10 @@ a:active {
 
 .landing-button-container .register-link {
   background-color: #7678ED;
-  padding: 1.1em;
+  padding: 1rem;
   border-radius: 1em;
-  margin: 0.5em 0;
   color: white;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .landing-button-container .register-link:hover {

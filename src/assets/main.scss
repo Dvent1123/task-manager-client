@@ -265,8 +265,7 @@ a:active {
   justify-content: center;
   align-items: center;
   h1 {
-    width: 65%;
-    padding: 0 20px;
+    width: auto;
   }
 
   .add-btn {
@@ -291,8 +290,8 @@ a:active {
 // container for individual tasks
 .info-container-title {
   width: 100%;
-  margin: 0 auto;
   background-image: linear-gradient( #e2fef3,#fdfcfb);
+
 }
 .info-container-center-title {
   display: flex;
@@ -377,14 +376,19 @@ a:active {
 .task-title {
   float: left;
   width:auto;
-  height:30px;
+  height:auto;
   vertical-align: center;
+}
+
+#task-user-data {
+  font-size: 15px !important;
+  font-weight: normal;
 }
 
 .task-title-right {
   float: left;
   width:auto;
-  height:30px;
+  height:auto;
   vertical-align: center;
   padding:0 3%;
 }
@@ -521,15 +525,16 @@ a:active {
   padding: 1em 0;
   font-size: .95rem !important;
 
-  .links{
+  .landing-links{
+    font-size: 100%;
+    width: 100%;
   }
   .login-link{
     background-image: linear-gradient(green, #639191);
-    padding: 1.1em;
+    padding: 1rem;
     border-radius: 1em;
-    margin: 0 1em;
     color:white;
-    font-weight:700;
+    font-weight:600;
     
   }
   .login-link:hover{
@@ -540,11 +545,10 @@ a:active {
   }
   .register-link {
     background-color: #7678ED;
-    padding: 1.1em;
+    padding: 1rem;
     border-radius: 1em;
-    margin: 0.5em 0;
     color: white;
-    font-weight:700;
+    font-weight:600;
   }
   .register-link:hover{
     opacity: .8;
