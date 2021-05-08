@@ -1,5 +1,5 @@
 
-# task-manager-client
+# Stint (client)
 
 This is the client side for a MERN stack web app deployed on 
 Digital Ocean. I wanted to make this as a version of a simple to-do
