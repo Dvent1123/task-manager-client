@@ -70,42 +70,21 @@ h4 {
   min-height: 100vh;
 }
 
-#color-animate {
-  background: linear-gradient(126deg, #00b9ff, #00f932, #d5fc05) !important;
-  -webkit-animation: ColorAnimation 5s ease infinite;
-  animation: ColorAnimation 5s ease infinite;
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
+#landing-wrapper {
+  background-image: url("../assets/header.png");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100% !important;
+  max-width: 100vw !important;
 }
 
-@-webkit-keyframes ColorAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes ColorAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+.landing-header {
+  padding: 2em !important;
 }
 
 .container {
   padding: 0em;
-  max-width: 1200px;
   margin: 0 auto;
   height: 100%;
 }
@@ -526,7 +505,7 @@ a:active {
 
 .submit-button {
   width: 80px;
-  padding: 6px 6px !important;
+  padding: 1.1em !important;
   border-radius: 8px;
   margin: 0px 5px;
   -ms-flex-item-align: center;
@@ -659,7 +638,7 @@ a:active {
 
 /* Landing Page Styling */
 .landing-header {
-  padding: 5em 0 5em 0;
+  padding: 5em 0 1em 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -670,20 +649,17 @@ a:active {
   -ms-flex-line-pack: center;
       align-content: center;
   text-align: center;
-  width: 50vw;
-  max-width: 900px;
   margin: 0 auto;
+  color: white;
 }
 
 .landing-header h1 {
-  padding: 1em 0;
-  margin: none;
+  padding: .6em 0;
 }
 
-.landing-header h3 {
-  padding: 0;
+.landing-header h1, .landing-header h3 {
   margin: none;
-  opacity: 0.3;
+  text-shadow: -.5px 0 black, 0 .5px black, .5px 0 black, 0 -.5px black;
 }
 
 .little-svgs-first {
@@ -709,18 +685,19 @@ a:active {
   height: 100%;
   margin: 2em 0;
   padding: 1em 0;
+  width: 100%;
   font-size: .95rem !important;
 }
 
 .landing-button-container .landing-links {
   font-size: 100%;
-  width: 100%;
+  padding: 3%;
 }
 
 .landing-button-container .login-link {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#00f932), to(#639191));
   background-image: linear-gradient(#00f932, #639191);
-  padding: 1rem;
+  padding: 1.4rem;
   border-radius: 1em;
   color: white;
   font-weight: 600;
@@ -737,7 +714,7 @@ a:active {
 .landing-button-container .register-link {
   background-image: -webkit-gradient(linear, left top, left bottom, from(#00b9ff), to(#639191));
   background-image: linear-gradient(#00b9ff, #639191);
-  padding: 1rem;
+  padding: 1.4rem;
   border-radius: 1em;
   color: white;
   font-weight: 600;
@@ -755,6 +732,7 @@ a:active {
 
 .landing-image-container {
   text-align: center;
+  padding-top: 30px;
 }
 
 .landing-image-container img {
@@ -958,8 +936,8 @@ input[type="password"] {
 .form-wrapper {
   margin: 0 auto;
   text-align: center;
-  width: 60vw;
-  min-width: 400px;
+  width: 60vw !important;
+  min-width: 350px;
   max-width: 800px;
   vertical-align: center;
 }

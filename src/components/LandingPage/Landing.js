@@ -5,14 +5,14 @@ import tasksImage from '../../assets/tasks.svg'
 import settingsImage from '../../assets/settings.svg'
 import landinglogo from '../../assets/logo512.png'
 import { VscTools, VscGraph } from "react-icons/vsc";
+
 const Landing = () => {
     return (
-        <div className="wrapper" id="color-animate">
-            <div className="container">
-                <div className="landing-header" >
+        <div className="wrapper">
+            <div className="container" >
+                <div className="landing-header" id="landing-wrapper">
                 <h1><em>Todo Simply</em></h1>
                 <img id="main_logo" src={landinglogo} alt="Task Manager Logo, a simplistic scroll with a color gradiant"/>
-                    <h2>Easily Manage <wbr/> Your Tasks</h2> 
                     <br/>
                     <h3>
                         Have you ever needed somewhere convenient to manage 
