@@ -107,6 +107,7 @@ const Settings = () => {
             <ToastContainer />
             <div className="container">
                 { loading === false ? (
+                        <div className="form-wrapper">
                             <form className='modal-form' onSubmit={onSubmit}>
                             <div className="form-group">
                                 <label htmlFor="username">Username</label>
@@ -137,11 +138,12 @@ const Settings = () => {
                                 <input className='option-styling' id="password" value={password} onChange={(e)=> setPassword(e.target.value)}/>
                             </div>
                             <div className="form-group">
-                                <button className="task-button" type="submit">
+                                <button className="submit-button" type="submit">
                                 Submit
                                 </button>
                             </div>
                         </form>
+                        </div>
                 ) : (
                     <Loading />
                 )

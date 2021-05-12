@@ -50,7 +50,7 @@ const Login = () => {
             
             <div className="container">
                 <ToastContainer />
-                <div class="form-spacer"></div>
+                <div className="form-spacer">
                     <div className="form-wrapper">
                         <form className='modal-form' onSubmit={onSubmit}> 
                         <div className="form-group">
@@ -62,7 +62,7 @@ const Login = () => {
                             <input className='option-styling' type="password" placeholder="Enter Password" value={password} onChange={(e) => setPassword(e.target.value)} name="password" required/>
                         </div>
                         <div className="form-group">
-                            <button className="task-button" type="submit">Login</button>                            
+                            <button className="submit-button" type="submit">Login</button>                            
                         </div>
 
                         <div className="form-group" style={{backgroundColor:'#bbb'}}>
@@ -74,6 +74,7 @@ const Login = () => {
                             </Link>
                         </div>
                         </form>
+                    </div>
                     </div>
                 </div>
     )

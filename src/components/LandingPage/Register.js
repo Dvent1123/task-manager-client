@@ -43,7 +43,7 @@ const Register = () => {
     return (
             <div className="container">
             <ToastContainer />
-            <div class="form-spacer"></div>
+            <div className="form-spacer">
                 <div className="form-wrapper">
                     <form className='modal-form' onSubmit={onSubmit}>
                         <div className="form-group">
@@ -65,7 +65,7 @@ const Register = () => {
                             <input className='option-styling' type="password" value={password2} onChange={(e) => setPassword2(e.target.value)} placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required />                            
                         </div>
                         <div className="form-group">
-                            <button type="submit" className="task-button">Register</button>
+                            <button type="submit" className="submit-button">Register</button>
                         </div>
                         <div className="form-group" style={{backgroundColor:'#bbb'}}>
                                 <p>Already have an account? <Link to="/login">Log in</Link> </p>
@@ -74,6 +74,7 @@ const Register = () => {
                                 </Link>
                         </div>
                     </form>
+                </div>
                 </div>
             </div>
     )

@@ -42,7 +42,7 @@ const Landing = () => {
 
                             <div className="how-subtext-container">
                                 <div className="how-subtext-center">
-                                    <VscTools color="#F0544F" size="2em"/>                                        
+                                    <VscTools className="little-svgs-first" />                                        
                                     <div className="how-subtext-text">
                                         <h4>Easily Edit with Our Tools</h4>
                                         <p>Edit your tasks and users with a simple click of a button and receive real time data!</p>
@@ -51,7 +51,7 @@ const Landing = () => {
                             </div>
                             <div className="how-subtext-container">
                                 <div className="how-subtext-center">
-                                    <VscGraph color="#F0544F" size="2em"/>
+                                    <VscGraph className="little-svgs-second"/>
                                     <div className="how-subtext-text">
                                         <h4>Propel Your Efficiency</h4>
                                         <p>Propel your efficiency upwards by having one easy and convenient place for everyone

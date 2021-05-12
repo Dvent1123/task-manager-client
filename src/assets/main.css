@@ -61,9 +61,7 @@ h4 {
 
 .wrapper {
   margin: 0 auto;
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
+  height: 100vh;
   min-height: 500px;
   background-image: radial-gradient(#fdfcfb, #e2d1c3);
   padding-bottom: 80px;
@@ -157,8 +155,7 @@ a:active {
 }
 
 .quick-actions-title {
-  padding: 1em 0;
-  padding-left: 25px;
+  padding: 0.5em 0 0 0.5em;
 }
 
 .blog-card {
@@ -169,10 +166,9 @@ a:active {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 1rem auto;
+  margin: 2em 1em;
   -webkit-box-shadow: 0 3px 7px -1px rgba(0, 0, 0, 0.1);
           box-shadow: 0 3px 7px -1px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1.6%;
   background: white;
   line-height: 1.4;
   border-radius: 5px;
@@ -266,7 +262,7 @@ a:active {
 }
 
 .blog-card #quicklinks_divider {
-  padding: 25px;
+  padding: 0.5em;
 }
 
 .blog-card p {
@@ -366,6 +362,12 @@ a:active {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border: 5px solid black;
   padding: 1rem;
   border-width: 0.25em 0.15em 0.25em 1.25em;
@@ -379,6 +381,12 @@ a:active {
 
 .description-container-title {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 #info-button-pictures {
@@ -476,6 +484,18 @@ a:active {
   height: auto;
   vertical-align: center;
   padding: 0 3%;
+}
+
+.submit-button {
+  width: 80px;
+  padding: 6px 6px !important;
+  border-radius: 8px;
+  margin: 0px 5px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(green), to(#639191));
+  background-image: linear-gradient(green, #639191);
 }
 
 .task-button {
@@ -627,6 +647,16 @@ a:active {
   padding: 0;
   margin: none;
   opacity: 0.3;
+}
+
+.little-svgs-first {
+  font-size: 2em;
+  color: #F0544F;
+}
+
+.little-svgs-second {
+  font-size: 4em;
+  color: #F0544F;
 }
 
 .landing-button-container {
@@ -896,6 +926,16 @@ input[type="password"] {
   vertical-align: center;
 }
 
+.form-spacer {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
   span.psw {
@@ -905,15 +945,53 @@ input[type="password"] {
   .cancelbtn {
     width: 100%;
   }
+  .info-container-center-title {
+    padding: .75rem 0;
+  }
+  .info-container-center-title h3 {
+    font-size: .5rem !important;
+  }
+  .divider-task-title {
+    padding: 0 0.05rem 0 0.05rem;
+  }
+  .task-button {
+    width: 20px !important;
+    padding: 6px 6px !important;
+    border-radius: 5px;
+    margin: 0px 5px;
+  }
+  #info-button-pictures {
+    width: 10px;
+    height: 10px;
+  }
+  .info-container-center h4 {
+    font-size: 0.45rem;
+  }
+  .info-container-center #task-status {
+    font-size: 0.4rem;
+  }
+  .tasks-description p {
+    font-size: 0.3rem;
+  }
 }
 
-/* Landing Info Correction for smaller device */
+/* Smaller devices */
 @media only screen and (max-width: 450px) {
+  .little-svgs-first {
+    font-size: 3em;
+  }
+  .little-svgs-second {
+    font-size: 5em;
+  }
   .how-info-container {
     width: 100%;
   }
+  .how-info-container h3, .how-info-container h4, .how-info-container h5 {
+    padding: 0.25em 0;
+  }
   .how-info-container .how-text-container {
     width: 100%;
+    text-align: center;
   }
   .how-info-container .how-image-container {
     width: 100%;
@@ -921,6 +999,42 @@ input[type="password"] {
   .how-info-container img {
     max-width: 100%;
     max-height: 100%;
+    padding: 1em 0;
+  }
+  .how-info-container .how-subtext-text {
+    padding: 0;
+  }
+  .blog-card .description {
+    padding: 0.5rem;
+  }
+  .blog-card {
+    margin: 1em 1em;
+  }
+  .blog-card #quicklinks_divider {
+    padding: 0.25em;
+  }
+  .quick-actions-title {
+    font-size: 1.75rem;
+  }
+  .blog-card .description h1 {
+    font-size: 1.5rem;
+  }
+  .info-container-center-title {
+    padding: 1rem 0.25rem;
+  }
+  .info-container-center-title h3 {
+    font-size: .75rem;
+  }
+  .divider-task-title {
+    padding: 0 0.5rem 0 0.5rem;
+  }
+  .task-button {
+    width: 30px !important;
+    margin: 0px 5px;
+  }
+  #info-button-pictures {
+    width: 15px;
+    height: 15px;
   }
 }
 
@@ -949,19 +1063,7 @@ input[type="password"] {
   }
 }
 
-/* Form spacing for login/register */
 /* Extra small devices (phones, 600px and down) */
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-  .form-spacer {
-    height: 10vw;
-  }
-}
-
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-  .form-spacer {
-    height: 5vw;
-  }
-}
 /*# sourceMappingURL=main.css.map */
