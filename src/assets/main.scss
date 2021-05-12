@@ -53,8 +53,33 @@ h4 {
     margin: 0 auto;
     height:100vh;
     min-height:500px;
-    background-image: radial-gradient(#fdfcfb , #e2d1c3);
-    padding-bottom:80px;
+    background: radial-gradient(#fdfcfb, #e2d1c3);
+    height:max-content;
+    min-height:100vh;
+}
+
+#color-animate {
+background: linear-gradient(126deg, #00b9ff, #00f932, #d5fc05) !important;
+-webkit-animation: ColorAnimation 5s ease infinite;
+-moz-animation: ColorAnimation 5s ease infinite;
+animation: ColorAnimation 5s ease infinite;
+height:max-content;
+}
+
+@-webkit-keyframes ColorAnimation {
+ 0%{background-position:0% 50%}
+ 50%{background-position:100% 50%}
+ 100%{background-position:0% 50%}
+}
+@-moz-keyframes ColorAnimation {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+@keyframes ColorAnimation {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
 }
 
 .container {
@@ -518,8 +543,8 @@ a:active {
   h1{
     padding: 1em 0;
     margin: none;
-    color: #D81E5B;
   }
+  
   h3 {
     padding: 0;
     margin: none;
@@ -550,7 +575,7 @@ a:active {
     width: 100%;
   }
   .login-link{
-    background-image: linear-gradient(green, #639191);
+    background-image: linear-gradient( #00f932, #639191);
     padding: 1rem;
     border-radius: 1em;
     color:white;
@@ -564,7 +589,7 @@ a:active {
     opacity: .5;
   }
   .register-link {
-    background-color: #7678ED;
+    background-image: linear-gradient( #00b9ff, #639191);
     padding: 1rem;
     border-radius: 1em;
     color: white;

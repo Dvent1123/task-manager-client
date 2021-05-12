@@ -7,16 +7,17 @@ import landinglogo from '../../assets/logo512.png'
 import { VscTools, VscGraph } from "react-icons/vsc";
 const Landing = () => {
     return (
-        <div className="wrapper">
+        <div className="wrapper" id="color-animate">
             <div className="container">
-                <div className="landing-header">
+                <div className="landing-header" >
+                <h1><em>Todo Simply</em></h1>
                 <img id="main_logo" src={landinglogo} alt="Task Manager Logo, a simplistic scroll with a color gradiant"/>
-                    <h2>Easily Manage <wbr/> Your Tasks <wbr/> With</h2> 
-                    
-                    <h1><em>Todo Simply</em></h1>
+                    <h2>Easily Manage <wbr/> Your Tasks</h2> 
+                    <br/>
                     <h3>
-                        Have you ever wanted to have somewhere convenient to manage your tasks, employees, or just everyday
-                        duties? Easily manage them all in one convenient place by registering now!
+                        Have you ever needed somewhere convenient to manage 
+                        <br/><br/> <em> everything? </em> <br/><br/>
+                        Register now for free & instant organization!
                     </h3>
                     <div className="landing-button-container">
                             <div className="landing-links">
