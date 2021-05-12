@@ -340,6 +340,7 @@ a:active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: auto;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -357,10 +358,11 @@ a:active {
 }
 
 .section-header .add-btn {
-  width: 10%;
+  width: auto;
   color: black;
   background-image: none;
   background-color: transparent;
+  background-size: auto;
 }
 
 .section-title {
