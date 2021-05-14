@@ -11,18 +11,30 @@ const Landing = () => {
         <div className="wrapper">
             <div className="container" >
                 <div className="landing-header" id="landing-wrapper">
-                <h1><em>Todo Simply</em></h1>
-                <img id="main_logo" src={landinglogo} alt="Task Manager Logo, a simplistic scroll with a color gradiant"/>
-                    <br/>
-                    <h3>
-                        Have you ever needed somewhere convenient to manage 
-                        <br/><br/> <em> everything? </em> <br/><br/>
-                        Register now for free & instant organization!
-                    </h3>
-                    <div className="landing-button-container">
-                            <div className="landing-links">
-                                <Link className='login-link' to="/login">Login</Link>
+                <nav className='landing-nav'>
+                    <div className="landing-nav-container">
+                        <img id="main_logo" src={landinglogo} alt="Task Manager Logo, a simplistic scroll with a color gradiant"/>
+                        <h1>Todo Simply</h1>
+                    </div>
+                    <div className="nav-landing-button-container">
+                            <div className="nav-landing-links">
+                                <Link className='nav-login-link' to="/login">Login</Link>
                             </div>                           
+                            <div className="nav-landing-links">
+                                <Link className='nav-login-link' to="/register">Register Now</Link>
+                            </div>
+                    </div>
+                </nav>
+
+                    <br/>
+                    <div className="landing-page-text">
+                        <h3>
+                            Have you ever needed <br /> somewhere convenient to manage 
+                            <br/> <em> everything? </em> <br/>
+                            Register now for free & <br /> instant organization!
+                        </h3>
+                    </div>
+                    <div className="landing-button-container">                          
                             <div className="landing-links">
                                 <Link className='register-link' to="/register">Register Now</Link>
                             </div>
