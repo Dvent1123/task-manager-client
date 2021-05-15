@@ -1,4 +1,6 @@
 
+![Logo](https://github.com/Dvent1123/task-manager-client/blob/main/public/logo512.png?raw=true)
+
 # Stint (client)
 
 This is the client side for a MERN stack web app deployed on 
@@ -8,15 +10,21 @@ makes them the admin for their project. They can also add users by making
 an account for them and each user can be assigned a task which they will see
 on their dashboard. The app uses SocketIO to receive real time data so all users
 can update the information in real time. 
+
 ## Authors
 
 - [@danielventura](https://github.com/Dvent1123)
 - [@brentynhanna](https://github.com/Brehtyn)
-
   
 ## Demo
 
    - [Todo Simply](todo-simply.com)
+
+## Screenshots
+
+![Website Screenshot](https://github.com/Dvent1123/task-manager-client/blob/main/public/screenshot_landing.jpg?raw=true)
+
+![Website Screenshot](http://github.com/Dvent1123/task-manager-client/blob/main/public/screenshot_mainmenu.jpg?raw=true)
 
 ## Tech Stack
 
@@ -27,6 +35,9 @@ can update the information in real time.
   
 ## API Reference
 
+<details>
+  <summary>Click for more information.</summary>
+  
 #### Get all users information
 
 ```http
@@ -182,7 +193,7 @@ Takes in the status of a task as a number and returns
 a string describing the status.
 
 
-
+</details>
 
 ## Environment Variables
 
