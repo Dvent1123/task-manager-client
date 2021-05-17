@@ -171,7 +171,7 @@ a:active {
 }
 
 .landing-nav {
-  width: 100vw;
+  width: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -181,7 +181,7 @@ a:active {
           flex-direction: row;
   background-color: #000;
   background-attachment: fixed;
-  margin-left: -32px !important;
+  border-radius: 0 0 1em 1em;
 }
 
 .landing-nav-container {
@@ -195,14 +195,14 @@ a:active {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 25%;
-  margin-left: 12px !important;
+  margin-left: 20px;
+  width: 100%;
 }
 
 #main_logo {
-  height: 2em;
-  width: 2em;
-  margin: 0 1em;
+  height: 2.5em;
+  width: 2.5em;
+  margin: 0 2em;
 }
 
 .nav-landing-button-container {
@@ -216,16 +216,15 @@ a:active {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  width: 75%;
-  margin-right: 32px !important;
+  text-align: right;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding-right: 2em;
 }
 
 .nav-landing-links {
   font-size: 1.2em;
-  padding: 1em 0;
 }
 
 .nav-login-link {
@@ -1212,8 +1211,4 @@ input[type="password"] {
     max-height: 100%;
   }
 }
-
-/* Extra small devices (phones, 600px and down) */
-/* Medium devices (landscape tablets, 768px and up) */
-/* Extra large devices (large laptops and desktops, 1200px and up) */
 /*# sourceMappingURL=main.css.map */
