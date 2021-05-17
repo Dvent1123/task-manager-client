@@ -710,7 +710,14 @@ a:active {
 
 #modal-form-button {
   height: 45px;
-  margin-top: 20px;
+  width: 100%;
+  margin-top: 35px;
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  border-radius: 10px;
 }
 
 /* Landing Page Styling */

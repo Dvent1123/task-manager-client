@@ -44,7 +44,7 @@ const TasksModal = ({isShowing, hide, onSubmit,
                             </select>    
                         </div>
                         <div className="form-group">
-                            <button className="task-button" id="modal-form-button" type="submit">
+                            <button id="modal-form-button" type="submit">
                             Submit
                             </button>
                         </div>
