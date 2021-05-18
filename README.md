@@ -26,6 +26,11 @@ can update the information in real time.
 
 ![Website Screenshot](http://github.com/Dvent1123/task-manager-client/blob/main/public/screenshot_mainmenu.jpg?raw=true)
 
+## Special Thanks 
+
+- https://unsplash.com/@airfocus on Unplash for the awesome landing photo!
+- https://readme.so/ for the coolest readme generator!
+
 ## Tech Stack
 
 **Client:** React, SCSS, Axios, SocketIO-Client, JWT-Decode

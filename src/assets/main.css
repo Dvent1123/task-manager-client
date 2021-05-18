@@ -1042,7 +1042,7 @@ input[type="password"] {
 }
 
 /* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 320px) {
   span.psw {
     display: block;
     float: none;
@@ -1104,6 +1104,23 @@ input[type="password"] {
   }
   .tasks-description p {
     font-size: 0.3rem;
+  }
+  .nav-link {
+    height: 40px !important;
+    width: 45px !important;
+    padding-top: 25px !important;
+    font-size: 0.75rem !important;
+  }
+  .nav_logout {
+    float: right;
+    padding-right: 15px !important;
+    padding-top: 10px !important;
+  }
+  .logout {
+    padding-right: 15px !important;
+    border-radius: 20px !important;
+    font-size: 0.65rem !important;
+    width: 65px;
   }
 }
 
@@ -1191,6 +1208,17 @@ input[type="password"] {
   #info-button-pictures {
     width: 15px;
     height: 15px;
+  }
+  .nav-link {
+    width: 60px;
+    font-size: 1rem;
+  }
+  .nav_logout {
+    padding-right: 10px;
+  }
+  .logout {
+    border-radius: 20px;
+    font-size: .85rem;
   }
 }
 
