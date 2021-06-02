@@ -8,109 +8,61 @@ import { VscTools, VscGraph } from "react-icons/vsc";
 
 const Landing = () => {
     return (
-        <div className="wrapper">
-            <div className="container" >
-                <div className="landing-header" id="landing-wrapper">
-                <nav className='landing-nav'>
-                    <div className="landing-nav-container">
-                        <img id="main_logo" src={landinglogo} alt="Task Manager Logo, a simplistic scroll with a color gradiant"/>
-                        <h1>Todo Simply</h1>
+        <div className="wrapper-main">
+            <div className="container-main">
+                <div className="nav-main">
+                    <div className="logo-main">
+                        <img src={landinglogo} alt="logo" />
                     </div>
-                    <div className="nav-landing-button-container">
-                            <div className="nav-landing-links">
-                                <Link className='nav-login-link' to="/login">Login</Link>
-                            </div>                           
-                            <div className="nav-landing-links">
-                                <Link className='nav-login-link' to="/register">Register</Link>
-                            </div>
-                    </div>
-                </nav>
-
-                    <br/>
-                    <div className="landing-page-text">
-                        <h3>
-                            Have you ever needed <br /> somewhere convenient to manage 
-                            <br/> <em> everything? </em> <br/>
-                            Register now for free & <br /> instant organization!
-                        </h3>
-                    </div>
-                    <div className="landing-button-container">                          
-                            <div className="landing-links">
-                                <Link className='register-link' to="/register">Register Now</Link>
-                            </div>
-                    </div>
+                    <nav>
+                        <div className="nav-landing-button-container">
+                                <div className="nav-landing-links">
+                                    <Link className='nav-login-link' to="/login">Login</Link>
+                                </div>                           
+                        </div>
+                        <button className="nav-register-links">
+                                <Link className='nav-register-link' to="/register">Register</Link>
+                        </button>
+                    </nav>
                 </div>
-                <div className="landing-image-container">
-                    <img src={mainLandingImage} alt="girl managing"/>
-                </div>
-                <div className="how-container">
-                    <div className="how-header">
-                        <h2>How does it work?</h2>
-                        <h4>Start off by signing up and seamlessly start managing your tasks or employees.</h4>
+                <section className="banner">
+                    <div className="banner-landing-image">
+                        <img src={mainLandingImage} alt="teamwork" />
                     </div>
-                    <div className="how-info-container">
-                        <div className="how-text-container">
-                            <h3>Real Time Data</h3>
-                            <h5>Easily update in real time</h5>
-
-                            <div className="how-subtext-container">
-                                <div className="how-subtext-center">
-                                    <VscTools className="little-svgs-first" />                                        
-                                    <div className="how-subtext-text">
-                                        <h4>Easily Edit with Our Tools</h4>
-                                        <p>Edit your tasks and users with a simple click of a button and receive real time data!</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="how-subtext-container">
-                                <div className="how-subtext-center">
-                                    <VscGraph className="little-svgs-second"/>
-                                    <div className="how-subtext-text">
-                                        <h4>Propel Your Efficiency</h4>
-                                        <p>Propel your efficiency upwards by having one easy and convenient place for everyone
-                                            to access their tasks and edit the status while always receiving immediate updates.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                    <div className="banner-text">
+                        <div className="grouped-words">
+                            <h3>Invest <span className='bigger'> 10% </span>less time</h3>
                         </div>
-                        <div className="how-image-container">
-                            <img src={tasksImage} alt="manage tasks"/>
-                        </div>
+                        <h2>Create A Real Time Office <br/> For You and Your Team</h2>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                            Vel sed odit doloremque incidunt fugiat ducimus quidem fugit dolore veniam quos
+                        </p>
                     </div>
-                    <div className="how-info-container">
-                        <div className="how-image-container">
-                            <img src={settingsImage} alt="manage users"/>
+                </section>
+                <section className="page-wrapper">
+                    <div className="page-container">
+                        <div className="page-header">
+                            <h2>How it works</h2>
+                            <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit laudantium
+                                dolorem labore atque nemo exercitationem ipsum? Ad cupiditate officiis,</h4>
                         </div>
-                        <div className="how-text-container">
-                            <h3>Manage Users and Permissions</h3>
-                            <h5>Handle your users permissions in one place</h5>
-
-                            <div className="how-subtext-container">
-                                <div className="how-subtext-center">
-                                    <div className="how-subtext-text">
-                                        <h4>Admins</h4>
-                                        <p>Upon registration you are automatically set as the admin of your project.
-                                            Add users and set their permissions to either "User" or "Admin" to allow
-                                            them more or less access depending on your needs!
-                                        </p>
+                        <div className="page-content-container">
+                            <div className="page-content-center">
+                                <div className="reasons-container">
+                                    <div className="number-container">
+                                        <h1>1</h1>
                                     </div>
+                                    <h3>Sign up</h3>
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                                        Perferendis veritatis reiciendis doloribus </p>
                                 </div>
                             </div>
-                            <div className="how-subtext-container">
-                                <div className="how-subtext-center">
-                                    <div className="how-subtext-text">
-                                        <h4>Users</h4>
-                                        <p>Get updated on the tasks that still need to be done and what needs to 
-                                            be accomplished. Edit the task to update everyone on your work and
-                                            stay up to date on the whole project.
-                                        </p>
-                                    </div>
-                                </div>
+                            <div className="page-image-container">
+                                <img className='page-image' src={tasksImage} alt="file-w-people" />
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
             </div>
         </div>
     )
