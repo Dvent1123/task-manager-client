@@ -36,7 +36,7 @@ const QuickLinks = ({token}) => {
                                         <h1>Users</h1>
                                         <h2>Actions on Users</h2>
                                         <div id="quicklinks_divider"> </div>
-                                        <p>Enjoy Admin privelages by being able to add, delete, and update users. Add users by creating and account for them and giving them the password you created (they can change this at any point).</p>
+                                        <p>Enjoy Admin privileges by being able to add, delete, and update users. Add users by creating an account for them and giving them the password you created (they can change this at any point).</p>
                                     </div>  
                             </div> 
                             <div className="details">
