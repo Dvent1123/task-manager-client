@@ -47,7 +47,7 @@ const Login = () => {
     }
 
     return (
-            
+            <div className="wrapper">
             <div className="container">
                 <ToastContainer />
                 <div className="form-spacer">
@@ -77,6 +77,7 @@ const Login = () => {
                     </div>
                     </div>
                 </div>
+            </div>
     )
 }
 

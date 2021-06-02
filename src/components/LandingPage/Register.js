@@ -41,6 +41,7 @@ const Register = () => {
     }
 
     return (
+        <div className="wrapper">
             <div className="container">
             <ToastContainer />
             <div className="form-spacer">
@@ -77,6 +78,7 @@ const Register = () => {
                 </div>
                 </div>
             </div>
+        </div>
     )
 }
 
