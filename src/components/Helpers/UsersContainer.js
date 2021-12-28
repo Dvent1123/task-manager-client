@@ -5,9 +5,19 @@ import TrashIcon from "../../assets/trash.svg";
 import EditIcon from "../../assets/edit.svg";
 
 const UsersContainer = ({ teammate, socket, user }) => {
-  const [teamMate, setTeamMate] = useState(teammate);
+  const [teamMate, setTeamMate] = useState({
+    _id: 0,
+    username: "Default",
+    job: "Default",
+    role: "User"
+  });
   const { _id, username, roomId, job, password, role } = teamMate;
   const { isShown, toggle } = ModalContainer();
+
+  useEffect(() => {
+    setTeamMate(teammate);
+    console.log("this is in container");
+  }, []);
 
   const removeUser = async () => {
     const data = {
@@ -23,6 +33,7 @@ const UsersContainer = ({ teammate, socket, user }) => {
 
     setTeamMate({ ...teamMate, currentUser: user.username });
 
+    console.log(teamMate)
     toggle();
     socket.emit("updateUser", teamMate);
   };
@@ -66,7 +77,7 @@ const UsersContainer = ({ teammate, socket, user }) => {
         isShowing={isShown}
         hide={toggle}
         onSubmit={onSubmit}
-        user={teammate}
+        user={teamMate}
         setUser={setTeamMate}
       />
     </section>
