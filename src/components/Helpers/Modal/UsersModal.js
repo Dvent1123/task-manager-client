@@ -4,7 +4,6 @@ import ReactDom from "react-dom";
 const UsersModal = ({ isShowing, hide, onSubmit, user, setUser }) => {
   useEffect(() => {
     setUser(user);
-    console.log("this is in modal");
   }, [user]);
   return (
     <>

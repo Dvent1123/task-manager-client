@@ -7,16 +7,16 @@ import EditIcon from "../../assets/edit.svg";
 const UsersContainer = ({ teammate, socket, user }) => {
   const [teamMate, setTeamMate] = useState({
     _id: 0,
-    username: "Default",
-    job: "Default",
-    role: "User"
+    username: "",
+    job: "",
+    role: "User",
+    password: ""
   });
-  const { _id, username, roomId, job, password, role } = teamMate;
+  const { _id } = teamMate;
   const { isShown, toggle } = ModalContainer();
 
   useEffect(() => {
     setTeamMate(teammate);
-    console.log("this is in container");
   }, []);
 
   const removeUser = async () => {
@@ -33,7 +33,6 @@ const UsersContainer = ({ teammate, socket, user }) => {
 
     setTeamMate({ ...teamMate, currentUser: user.username });
 
-    console.log(teamMate)
     toggle();
     socket.emit("updateUser", teamMate);
   };
@@ -42,16 +41,16 @@ const UsersContainer = ({ teammate, socket, user }) => {
     <section className="info-container-title">
       <div className="info-container-center-title">
         <h3 id="task-user-data" className="task-title">
-          {username}{" "}
+          {teammate.username}{" "}
         </h3>
         <div className="divider-task-title"> | </div>
         <div className="description-container-title">
           <h3 id="task-user-data" className="task-title">
-            {role}{" "}
+            {teammate.role}{" "}
           </h3>
           <div className="divider-task-title"> | </div>
           <h3 id="task-user-data" className="task-title">
-            {job}
+            {teammate.job}
           </h3>
         </div>
         <button className="task-button" onClick={toggle}>

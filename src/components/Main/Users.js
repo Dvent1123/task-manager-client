@@ -20,13 +20,19 @@ const Users = () => {
   const [user, setUser] = useState({
     username: "",
     roomId: 0,
-    password: "",
-    password_confirmation: "",
-    role: "User",
-    job: ""
+    role: "User"
   });
 
-  const { username, roomId, password, password_confirmation, role, job } = user;
+  const [newTeammate, setNewTeammate] = useState({
+    _id: 0,
+    username: "",
+    job: "",
+    role: "User",
+    password: "",
+    currentUser: "",
+    roomId: ""
+  });
+
 
   const [loading, setLoading] = useState(true);
   const { token } = useToken();
@@ -36,18 +42,6 @@ const Users = () => {
   const parseToken = JSON.parse(token);
   realToken.current = parseToken.token;
   const socket = useContext(SocketContext);
-
-  useEffect(() => {
-    const generatedPassword = generator.generate({
-      length: 10,
-      numbers: true
-    });
-    setUser({
-      ...user,
-      password: generatedPassword,
-      password_confirmation: generatedPassword
-    });
-  }, []);
 
   useEffect(() => {
     let timer = setTimeout(() => setLoading(false), 6000);
@@ -67,6 +61,17 @@ const Users = () => {
       ...user,
       username: decoded.username,
       role: decoded.role,
+      roomId: decoded.roomId
+    });
+
+    const generatedPassword = generator.generate({
+      length: 10,
+      numbers: true
+    });
+    setNewTeammate({
+      ...newTeammate,
+      password: generatedPassword,
+      currentUser: decoded.username,
       roomId: decoded.roomId
     });
 
@@ -133,11 +138,20 @@ const Users = () => {
   const onSubmit = e => {
     e.preventDefault();
 
-    socket.emit("addUser", user);
+    setNewTeammate({ ...newTeammate, currentUser: user.username });
+
+    socket.emit("addUser", newTeammate);
 
     toggle();
 
-    setUser({ ...user, username: "", job: "", role: "User" });
+    setNewTeammate({
+      username: "",
+      job: "",
+      role: "User",
+      password: "",
+      currentUser: "",
+      roomId: ""
+    });
   };
 
   useEffect(() => {
@@ -177,8 +191,8 @@ const Users = () => {
             isShowing={isShown}
             hide={toggle}
             onSubmit={onSubmit}
-            user={user}
-            setUser={setUser}
+            user={newTeammate}
+            setUser={setNewTeammate}
           />
           <section className="section-container">
             <div className="info-container-title">
