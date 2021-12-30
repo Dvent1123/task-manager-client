@@ -33,7 +33,6 @@ const Users = () => {
     roomId: ""
   });
 
-
   const [loading, setLoading] = useState(true);
   const { token } = useToken();
   const [decoded, setDecoded] = useState("");
@@ -57,6 +56,8 @@ const Users = () => {
       jwt_decode(realToken.current).roomId,
       jwt_decode(realToken.current).username
     );
+
+
     setUser({
       ...user,
       username: decoded.username,
@@ -105,6 +106,7 @@ const Users = () => {
 
     socket.on("UserUpdated", result => {
       const { data, success, message } = result;
+      console.log("success is true", success);
       if (!success) {
         toast.error(message);
       } else {

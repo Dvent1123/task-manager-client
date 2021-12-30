@@ -10,13 +10,23 @@ const UsersContainer = ({ teammate, socket, user }) => {
     username: "",
     job: "",
     role: "User",
-    password: ""
+    password: "",
+    currentUser: "",
+    roomId: ""
   });
   const { _id } = teamMate;
   const { isShown, toggle } = ModalContainer();
 
   useEffect(() => {
-    setTeamMate(teammate);
+    setTeamMate({
+      _id: teammate._id,
+      username: teammate.username,
+      job: teammate.job,
+      role: teammate.role,
+      password: teammate.password,
+      roomId: teammate.roomId,
+      currentUser: user.username
+    });
   }, []);
 
   const removeUser = async () => {
@@ -30,8 +40,6 @@ const UsersContainer = ({ teammate, socket, user }) => {
   //where you update the tasks
   const onSubmit = e => {
     e.preventDefault();
-
-    setTeamMate({ ...teamMate, currentUser: user.username });
 
     toggle();
     socket.emit("updateUser", teamMate);
