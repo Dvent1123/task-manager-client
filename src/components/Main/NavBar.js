@@ -11,8 +11,7 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import landinglogo from "../../assets/logo512.jpg";
 import { makeStyles } from "@material-ui/core/styles";
-
-const pages = ["Login", "Register"];
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   logo: {
@@ -35,7 +34,7 @@ const ResponsiveAppBar = () => {
 
   return (
     <AppBar position="static" style={{ background: "white" }}>
-      <Container maxWidth="xl" sx={{ mx: 2 }} backGround>
+      <Container maxWidth="xl" sx={{ mx: 2 }}>
         <Toolbar disableGutters>
           <Typography
             variant="h6"
@@ -53,7 +52,7 @@ const ResponsiveAppBar = () => {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
+              sx={{ color: "black" }}
             >
               <MenuIcon />
             </IconButton>
@@ -75,11 +74,26 @@ const ResponsiveAppBar = () => {
                 display: { xs: "block", md: "none" }
               }}
             >
-              {pages.map(page => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))}
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Typography textAlign="center">
+                  <Link
+                    style={{ color: "black", textDecoration: "none" }}
+                    to="/login"
+                  >
+                    Login
+                  </Link>
+                </Typography>
+              </MenuItem>
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Typography textAlign="center">
+                  <Link
+                    style={{ color: "black", textDecoration: "none" }}
+                    to="/register"
+                  >
+                    Register
+                  </Link>
+                </Typography>
+              </MenuItem>
             </Menu>
           </Box>
           <Typography
@@ -97,15 +111,28 @@ const ResponsiveAppBar = () => {
               flexDirection: "row-reverse"
             }}
           >
-            {pages.map(page => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "black", display: "block" }}
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: "black", display: "block" }}
+            >
+              <Link
+                style={{ color: "black", textDecoration: "none" }}
+                to="/login"
               >
-                {page}
-              </Button>
-            ))}
+                Login
+              </Link>
+            </Button>
+            <Button
+              onClick={handleCloseNavMenu}
+              sx={{ my: 2, color: "black", display: "block" }}
+            >
+              <Link
+                style={{ color: "black", textDecoration: "none" }}
+                to="/register"
+              >
+                Register
+              </Link>
+            </Button>
           </Box>
         </Toolbar>
       </Container>

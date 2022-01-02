@@ -1,49 +1,40 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import mainLandingImage from "../../assets/main_image.svg";
 import tasksImage from "../../assets/tasks.svg";
 import landinglogo from "../../assets/logo512.jpg";
-import { AiTwotoneMail } from "react-icons/ai";
 import NavBar from "../Main/NavBar";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
+import Grid from "@mui/material/Grid";
 import { makeStyles } from "@material-ui/core/styles";
+import {
+  createTheme,
+  responsiveFontSizes,
+  ThemeProvider
+} from "@mui/material/styles";
 
 const useStyles = makeStyles(theme => ({
   mainContainer: {
     background: "linear-gradient(90deg, #ffffff 50%, #f2f2f2 50%)"
   }
 }));
+let theme = createTheme();
+theme = responsiveFontSizes(theme);
 
 const Landing = () => {
   const classes = useStyles();
 
   return (
-    <div className="wrapper-main">
-      <div className="container-main">
-        {/* <div className="nav-main">
-                    <div className="logo-main">
-                        <img src={landinglogo} alt="logo" />
-                    </div>
-                    <nav>
-                        <div className="nav-landing-button-container">
-                                <div className="nav-landing-links">
-                                    <Link className='nav-login-link' to="/login">Login</Link>
-                                </div>                           
-                        </div>
-                        <button className="nav-register-links">
-                                <Link className='nav-register-link' to="/register">Register</Link>
-                        </button>
-                    </nav>
-                </div> */}
+    <>
+      <ThemeProvider theme={theme}>
         <Container maxWidth="xl" className={classes.mainContainer}>
           <NavBar />
           <Box
             sx={{
               width: "100%",
-              height: "70vh",
+              height: { xs: "100vh", md: "70vh" },
               display: "flex",
               flexDirection: { xs: "column", md: "row" },
               margin: 0
@@ -52,11 +43,11 @@ const Landing = () => {
           >
             <Paper
               sx={{
-                width: {xs: "100%", md: "50%"},
+                width: { xs: "100%", md: "50%" },
                 height: "100%",
                 display: "flex",
-                alignItems: {xs: "none", md: "flex-end"},
-                justifyContent: {xs: "center"},
+                alignItems: { xs: "center", md: "flex-end" },
+                justifyContent: { xs: "center" },
                 backgroundColor: "transparent",
                 boxShadow: "none"
               }}
@@ -70,151 +61,466 @@ const Landing = () => {
             <Box
               sx={{
                 height: "100%",
-                width: {xs: "100%", md: "50%"},
+                width: { xs: "100%", md: "50%" },
                 display: "flex",
                 flexWrap: "wrap",
-                justifyContent: "flex-end",
+                justifyContent: { xs: "center", md: "flex-end" }
               }}
               flexDirection="column"
             >
-              <Typography sx={{pl: {xs: 0, md: 3}}} variant="h3">Invest 10% less time</Typography>
-              <Typography sx={{pl: {xs: 0, md: 3}}} variant="h2">
+              <Typography sx={{ pl: { xs: 0, md: 3 } }} variant="h3">
+                Invest 10% less time
+              </Typography>
+              <Typography sx={{ pl: { xs: 0, md: 3 } }} variant="h2">
                 Create A Real Time Office <br /> For You and Your Team
               </Typography>
-              <Typography variant="h5" sx={{mb: 3, pl: {xs: 0, md: 3}}}>
+              <Typography variant="h5" sx={{ mb: 3, pl: { xs: 0, md: 3 } }}>
                 Have you ever needed somewhere convenient to manage everything?
                 Register now for free and instant organization!{" "}
               </Typography>
             </Box>
           </Box>
 
-          <section className="page-wrapper">
-            <div className="page-container">
-              <div className="page-header">
-                <h2>How it works</h2>
-                <h4>
-                  Sign up and easily add users to your project. Start receiving
-                  real-time data and notifications. Have users complete tasks
-                  and have continous production.
-                </h4>
-              </div>
-              <div className="page-content-container">
-                <div className="page-content-center">
-                  <div className="couple-reasons-container">
-                    <div className="reasons-container">
-                      <div className="number-container">
-                        <h1>1</h1>
-                      </div>
-                      <h3>Sign up</h3>
-                      <p>
+          <section>
+            <Box
+              maxWidth="xl"
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                py: 4,
+                backgroundColor: "#2f2e41"
+              }}
+            >
+              <Typography
+                color="white"
+                variant="h2"
+                component="div"
+                sx={{ textAlign: "center", my: 1 }}
+              >
+                How it works
+              </Typography>
+              <Typography
+                variant="h5"
+                color="white"
+                component="div"
+                sx={{
+                  textAlign: "center",
+                  my: 1,
+                  width: { xs: "100%", md: "75%" }
+                }}
+              >
+                Sign up and easily add users to your project. Start receiving
+                real-time data and notifications. Have users complete tasks and
+                have continous production.
+              </Typography>
+              <Box
+                sx={{
+                  width: "100%",
+                  display: "flex",
+                  flexDirection: { xs: "column", md: "row" },
+                  justifyContent: "center",
+                  alignItems: "center"
+                }}
+              >
+                <Box sx={{ width: { xs: "100%", md: "50%" }, p: 3 }}>
+                  <Grid
+                    container
+                    spacing={{
+                      xs: 1,
+                      sm: 4,
+                      md: 4
+                    }}
+                  >
+                    <Grid
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "center"
+                      }}
+                      item
+                      xs={12}
+                      md={6}
+                    >
+                      <Typography
+                        variant="h2"
+                        component="div"
+                        color="white"
+                        sx={{
+                          height: "80px",
+                          width: "80px",
+                          borderRadius: "50%",
+                          border: "1.5px solid white",
+                          textAlign: "center",
+                          my: 1,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center"
+                        }}
+                      >
+                        1
+                      </Typography>
+                      <Typography
+                        variant="h4"
+                        component="div"
+                        color="white"
+                        sx={{
+                          flexGrow: 1,
+                          textAlign: "center",
+                          my: 1
+                        }}
+                      >
+                        Sign up
+                      </Typography>
+                      <Typography
+                        variant="h6"
+                        component="div"
+                        color="white"
+                        sx={{
+                          flexGrow: 1,
+                          textAlign: "center",
+                          my: 1
+                        }}
+                      >
                         Register easily through the registration portal or
-                        better yet, right on this page!{" "}
-                      </p>
-                    </div>
-                    <div className="reasons-container">
-                      <div className="number-container">
-                        <h1>2</h1>
-                      </div>
-                      <h3>Add Users</h3>
-                      <p>
+                        better yet, right on this page!
+                      </Typography>
+                    </Grid>
+                    <Grid
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "center"
+                      }}
+                      item
+                      xs={12}
+                      md={6}
+                    >
+                      <Typography
+                        variant="h2"
+                        component="div"
+                        color="white"
+                        sx={{
+                          height: "80px",
+                          width: "80px",
+                          borderRadius: "50%",
+                          border: "1.5px solid white",
+                          textAlign: "center",
+                          my: 1,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center"
+                        }}
+                      >
+                        2
+                      </Typography>
+                      <Typography
+                        variant="h4"
+                        component="div"
+                        color="white"
+                        sx={{
+                          flexGrow: 1,
+                          textAlign: "center",
+                          my: 1
+                        }}
+                      >
+                        Add Users{" "}
+                      </Typography>
+                      <Typography
+                        variant="h6"
+                        component="div"
+                        color="white"
+                        sx={{
+                          flexGrow: 1,
+                          textAlign: "center",
+                          my: 1
+                        }}
+                      >
                         Create a user after you login, send them their username
                         and password so they can login and begin working.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="couple-reasons-container">
-                    <div className="reasons-container">
-                      <div className="number-container">
-                        <h1>3</h1>
-                      </div>
-                      <h3>Create Task</h3>
-                      <p>
+                      </Typography>
+                    </Grid>
+                    <Grid
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "center"
+                      }}
+                      item
+                      xs={12}
+                      md={6}
+                    >
+                      <Typography
+                        variant="h2"
+                        component="div"
+                        color="white"
+                        sx={{
+                          height: "80px",
+                          width: "80px",
+                          borderRadius: "50%",
+                          border: "1.5px solid white",
+                          textAlign: "center",
+                          my: 1,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center"
+                        }}
+                      >
+                        3
+                      </Typography>
+                      <Typography
+                        variant="h4"
+                        component="div"
+                        color="white"
+                        sx={{
+                          flexGrow: 1,
+                          textAlign: "center",
+                          my: 1
+                        }}
+                      >
+                        Create Task
+                      </Typography>
+                      <Typography
+                        variant="h6"
+                        component="div"
+                        color="white"
+                        sx={{
+                          flexGrow: 1,
+                          textAlign: "center",
+                          my: 1
+                        }}
+                      >
                         Create a task to be completed, give it a name and a
                         description so your users know what to do!
-                      </p>
-                    </div>
-                    <div className="reasons-container">
-                      <div className="number-container">
-                        <h1>4</h1>
-                      </div>
-                      <h3>Assign Task</h3>
-                      <p>
+                      </Typography>
+                    </Grid>
+                    <Grid
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "center"
+                      }}
+                      item
+                      xs={12}
+                      md={6}
+                    >
+                      <Typography
+                        variant="h2"
+                        component="div"
+                        color="white"
+                        sx={{
+                          height: "80px",
+                          width: "80px",
+                          borderRadius: "50%",
+                          border: "1.5px solid white",
+                          textAlign: "center",
+                          my: 1
+                        }}
+                      >
+                        4
+                      </Typography>
+                      <Typography
+                        variant="h4"
+                        component="div"
+                        color="white"
+                        sx={{
+                          flexGrow: 1,
+                          textAlign: "center",
+                          my: 1,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center"
+                        }}
+                      >
+                        Assign Task{" "}
+                      </Typography>
+                      <Typography
+                        variant="h6"
+                        component="div"
+                        color="white"
+                        sx={{
+                          flexGrow: 1,
+                          textAlign: "center",
+                          my: 1
+                        }}
+                      >
                         Assign the task to any user in your project, this will
                         appear in their task list so they will know what they
-                        have to do.{" "}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="couple-reasons-container">
-                    <div className="reasons-container">
-                      <div className="number-container">
-                        <h1>5</h1>
-                      </div>
-                      <h3>Manage Task</h3>
-                      <p>
+                        have to do.
+                      </Typography>
+                    </Grid>
+                    <Grid
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "center"
+                      }}
+                      item
+                      xs={12}
+                      md={6}
+                    >
+                      <Typography
+                        variant="h2"
+                        component="div"
+                        color="white"
+                        sx={{
+                          height: "80px",
+                          width: "80px",
+                          borderRadius: "50%",
+                          border: "1.5px solid white",
+                          textAlign: "center",
+                          my: 1,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center"
+                        }}
+                      >
+                        5
+                      </Typography>
+                      <Typography
+                        variant="h4"
+                        component="div"
+                        color="white"
+                        sx={{
+                          flexGrow: 1,
+                          textAlign: "center",
+                          my: 1
+                        }}
+                      >
+                        Manage Task{" "}
+                      </Typography>
+                      <Typography
+                        variant="h6"
+                        component="div"
+                        color="white"
+                        sx={{
+                          flexGrow: 1,
+                          textAlign: "center",
+                          my: 1
+                        }}
+                      >
                         Easily manage your tasks with the ability to create,
-                        edit, and delete any task at any time.{" "}
-                      </p>
-                    </div>
-                    <div className="reasons-container">
-                      <div className="number-container">
-                        <h1>6</h1>
-                      </div>
-                      <h3>Approve Task</h3>
-                      <p>
+                        edit, and delete any task at any time.
+                      </Typography>
+                    </Grid>
+                    <Grid
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                        alignItems: "center"
+                      }}
+                      item
+                      xs={12}
+                      md={6}
+                    >
+                      <Typography
+                        variant="h2"
+                        component="div"
+                        color="white"
+                        sx={{
+                          height: "80px",
+                          width: "80px",
+                          borderRadius: "50%",
+                          border: "1.5px solid white",
+                          textAlign: "center",
+                          my: 1,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center"
+                        }}
+                      >
+                        6
+                      </Typography>
+                      <Typography
+                        variant="h4"
+                        component="div"
+                        color="white"
+                        sx={{
+                          flexGrow: 1,
+                          textAlign: "center",
+                          my: 1
+                        }}
+                      >
+                        Approve Task
+                      </Typography>
+                      <Typography
+                        variant="h6"
+                        component="div"
+                        color="white"
+                        sx={{
+                          flexGrow: 1,
+                          textAlign: "center",
+                          my: 1
+                        }}
+                      >
                         Wait for your team members to complete tasks and then
                         easily change their status so your team members know
-                        when they are all caught up!{" "}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="page-image-container">
+                        when they are all caught up!
+                      </Typography>
+                    </Grid>
+                  </Grid>
+                </Box>
+                <Box
+                  sx={{
+                    width: { xs: "100%", md: "50%" },
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center"
+                  }}
+                >
                   <img
                     className="page-image"
                     src={tasksImage}
                     alt="file-w-people"
+                    style={{ width: "100%", maxWidth: "500px", margin: "2rem" }}
                   />
-                </div>
-              </div>
-            </div>
+                </Box>
+              </Box>
+            </Box>
           </section>
-          <section className="footer">
-            <footer>
-              <div className="site-logo">
-                <img src={landinglogo} alt="site logo" />
-                <h1>Todo Simply</h1>
-              </div>
-              <div className="section-links">
-                <div className="left-links">
-                  <h4>Sections</h4>
-                  <div className="nav-landing-links">
-                    <Link className="nav-login-link" to="/login">
-                      Login
-                    </Link>
-                  </div>
-                  <div className="nav-landing-links">
-                    <Link className="nav-register-link" to="/register">
-                      Register
-                    </Link>
-                  </div>
-                </div>
-                <div className="right-links">
-                  <h4>Contact Us</h4>
-                  <div className="email-container">
-                    <AiTwotoneMail
-                      className="email-icon"
-                      style={{ color: "#2f2e41" }}
-                    />
-                    <p>ventura.daniel36@gmail.com</p>
-                  </div>
-                </div>
-              </div>
-            </footer>
-          </section>
+          <footer>
+            <Box
+              sx={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                backgroundColor: "white",
+                marginTop: "2rem"
+              }}
+            >
+              <Typography
+                variant="h4"
+                component="div"
+                sx={{
+                  flexGrow: 1,
+                  textAlign: "center",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  py: 3,
+                  my: 1
+                }}
+              >
+                <img
+                  src={landinglogo}
+                  alt="site logo"
+                  style={{ width: "100%", maxWidth: "50px" }}
+                />
+                Todo Simply
+              </Typography>
+            </Box>
+          </footer>
         </Container>
-      </div>
-    </div>
+      </ThemeProvider>
+    </>
   );
 };
 
