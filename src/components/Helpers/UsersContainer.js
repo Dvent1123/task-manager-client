@@ -1,67 +1,94 @@
-import React, { useState } from 'react'
-import UsersModal from './Modal/UsersModal'
-import ModalContainer from './Modal/ModalContainer'
-import TrashIcon from '../../assets/trash.svg'
-import EditIcon from '../../assets/edit.svg'
+import React, { useState, useEffect } from "react";
+import UsersModal from "./Modal/UsersModal";
+import ModalContainer from "./Modal/ModalContainer";
+import TrashIcon from "../../assets/trash.svg";
+import EditIcon from "../../assets/edit.svg";
 
-const UsersContainer = ({user, socket, currentUser}) => {
-    const {_id, username,roomId, job, password, role} = user
-    const {isShown, toggle} = ModalContainer()
-    const { username: currentUserName } = currentUser
+const UsersContainer = ({ teammate, socket, user }) => {
+  const [teamMate, setTeamMate] = useState({
+    _id: 0,
+    username: "",
+    job: "",
+    role: "User",
+    password: "",
+    currentUser: "",
+    roomId: ""
+  });
+  const { _id } = teamMate;
+  const { isShown, toggle } = ModalContainer();
 
-    const [userName, setUserName] = useState(username)
-    const [newJob, setNewJob] = useState(job)
-    const [newRole, setNewRole] = useState(role)
+  useEffect(() => {
+    setTeamMate({
+      _id: teammate._id,
+      username: teammate.username,
+      job: teammate.job,
+      role: teammate.role,
+      password: teammate.password,
+      roomId: teammate.roomId,
+      currentUser: user.username
+    });
+  }, []);
 
-    const removeUser = async () => {
-        const data = {
-            id: _id,
-            currentUser: currentUserName
-        }
-        socket.emit('deleteUser', data)
-    }
+  const removeUser = async () => {
+    const data = {
+      id: _id,
+      currentUser: user.username
+    };
+    socket.emit("deleteUser", data);
+  };
 
+  //where you update the tasks
+  const onSubmit = e => {
+    e.preventDefault();
 
-    //where you update the tasks
-    const onSubmit = (e) => {
-        e.preventDefault()
-        let newUser = {
-                id: _id,
-                username: userName,
-                roomId: roomId,
-                password: password,
-                role: newRole,
-                job: newJob,
-                currentUser: currentUserName
-            }
+    toggle();
+    socket.emit("updateUser", teamMate);
+  };
 
-        toggle()
-        socket.emit('updateUser', newUser)
-    }
+  return (
+    <section className="info-container-title">
+      <div className="info-container-center-title">
+        <h3 id="task-user-data" className="task-title">
+          {teammate.username}{" "}
+        </h3>
+        <div className="divider-task-title"> | </div>
+        <div className="description-container-title">
+          <h3 id="task-user-data" className="task-title">
+            {teammate.role}{" "}
+          </h3>
+          <div className="divider-task-title"> | </div>
+          <h3 id="task-user-data" className="task-title">
+            {teammate.job}
+          </h3>
+        </div>
+        <button className="task-button" onClick={toggle}>
+          <img
+            id="info-button-pictures"
+            src={EditIcon}
+            alt="Edit Button | Pen on paper"
+          />
+        </button>
+        <button
+          className="task-button"
+          id="delete-task-button"
+          onClick={removeUser}
+        >
+          <img
+            id="info-button-pictures"
+            src={TrashIcon}
+            alt="Delete Button | Trashcan"
+          />
+        </button>
+      </div>
+      <UsersModal
+        isShowing={isShown}
+        hide={toggle}
+        onSubmit={onSubmit}
+        user={teamMate}
+        setUser={setTeamMate}
+      />
+    </section>
+  );
+};
 
-    return (
-        <section className="info-container-title">
-            <div className="info-container-center-title">
-                <h3 id="task-user-data" className="task-title">{username} </h3>
-                <div className="divider-task-title"> | </div>
-                <div className="description-container-title">
-                    <h3 id="task-user-data"  className="task-title">{role} </h3>
-                    <div className="divider-task-title"> | </div>
-                    <h3 id="task-user-data" className="task-title">{job}</h3>
-                </div>
-                <button className="task-button" onClick={toggle}>
-                    <img id="info-button-pictures" src={EditIcon} alt="Edit Button | Pen on paper"/>
-                </button>
-                <button className="task-button" id="delete-task-button" onClick={removeUser}>
-                    <img id="info-button-pictures" src={TrashIcon} alt="Delete Button | Trashcan"/> 
-                </button>
-            </div>
-                <UsersModal isShowing={isShown} hide={toggle} onSubmit={onSubmit} 
-                userName={userName} setUserName={setUserName}
-                role={newRole} setRole={setNewRole}
-                job={newJob} setJob={setNewJob}/>
-        </section>
-    )
-}
-
-export default UsersContainer
+export default UsersContainer;

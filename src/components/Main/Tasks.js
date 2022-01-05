@@ -54,6 +54,10 @@ const Tasks = () => {
             console.log(message)
         })
 
+        socket.on("joined", () =>
+        socket.emit("subscribe", decoded.roomId, decoded.username)
+      );
+
         socket.on('left', message => console.log(message))
 
         socket.on('TaskAdded', (result) => {

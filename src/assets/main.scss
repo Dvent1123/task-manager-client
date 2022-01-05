@@ -6,8 +6,7 @@
   box-sizing: border-box;
 }
 
-
-:root{
+:root {
   --primary-color: #2f2e41;
   --secondary-color: #ff6584;
   --background-color: #f2f2f2;
@@ -39,7 +38,7 @@ h3 {
 h4 {
   font-size: 1rem;
 }
-p{
+p {
   font-size: 0.75rem;
 }
 body {
@@ -54,20 +53,19 @@ h4 {
 
 .wrapper {
   margin: 0 auto;
-  height:100vh;
-  min-height:500px;
+  height: 100vh;
+  min-height: 500px;
   background-color: var(--background-color);
-  height:max-content;
-  min-height:100vh;
+  height: max-content;
+  min-height: 100vh;
 }
 
 .container {
-    padding: 0em;
-    margin: 0 auto;
-    height: 100%;
-    width: 90%;
-    background-color: var(--background-color);
-
+  padding: 0em;
+  margin: 0 auto;
+  height: 100%;
+  width: 90%;
+  background-color: var(--background-color);
 }
 
 /* Set a style for all buttons */
@@ -96,31 +94,31 @@ button:active {
 .cancelbtn {
   width: auto;
   padding: 10px 18px;
-  background-image: linear-gradient(red, darkred );
+  background-image: linear-gradient(red, darkred);
   background-color: red;
 }
 
 /* Nav */
 .nav_menu {
-  width:100%;
-  height:80px;
+  width: 100%;
+  height: 80px;
   background-color: var(--primary-color);
-  text-align:center;
+  text-align: center;
 }
 .nav-link {
   float: left;
   height: 40px;
   width: 80px;
-  padding-top:25px;
+  padding-top: 25px;
 }
 .nav_logout {
-  float:right;
-  padding-top:10px;
-  padding-right:20px;
+  float: right;
+  padding-top: 10px;
+  padding-right: 20px;
 }
 .logout {
   background-color: var(--secondary-color);
-  padding-right:20px !important;
+  padding-right: 20px !important;
   border-radius: 7px;
 }
 /* unvisited link */
@@ -135,55 +133,59 @@ a:visited {
 
 /* mouse over link */
 a:hover {
-  color:var(--secondary-color);
+  color: var(--secondary-color);
 }
 
 /* selected link */
 a:active {
-  color:darkred;
+  color: darkred;
 }
 
 //Landing Page Styling
-.wrapper-main{
+.wrapper-main {
   width: 100%;
   height: 100%;
 }
-.container-main{
+.container-main {
   width: 100%;
   height: 100%;
   padding: 1em;
-  background: linear-gradient(90deg, var(--background-white) 50%, var(--background-color) 50%);
+  background: linear-gradient(
+    90deg,
+    var(--background-white) 50%,
+    var(--background-color) 50%
+  );
 }
-.nav-main{
+.nav-main {
   width: 100%;
   height: fit-content;
   display: flex;
   flex-direction: row;
 }
-nav{
+nav {
   display: flex;
   justify-content: flex-end;
   align-items: center;
   width: 50%;
-  
-  .nav-landing-button-container{
+
+  .nav-landing-button-container {
     display: flex;
     flex-direction: row;
     margin: 1em 0;
   }
-  .nav-login-link{
+  .nav-login-link {
     color: black;
     padding: 0 1em;
   }
-  .nav-login-link:hover{
-    color: var(--secondary-color)
+  .nav-login-link:hover {
+    color: var(--secondary-color);
   }
   //register button
-  button{
+  button {
     margin: 0;
     padding: 0.65em;
   }
-.nav-register-links{
+  .nav-register-links {
     margin: 0.75em 0;
     background-color: var(--secondary-color);
     background-image: none;
@@ -192,11 +194,11 @@ nav{
     justify-content: center;
     align-items: center;
   }
-  .nav-register-link{
+  .nav-register-link {
     color: white;
   }
 }
-.logo-main{
+.logo-main {
   width: 50%;
   img {
     width: 30px;
@@ -205,7 +207,7 @@ nav{
   }
 }
 
-.banner{
+.banner {
   width: 100%;
   height: 100%;
   display: flex;
@@ -215,32 +217,32 @@ nav{
   margin: 2em 0;
 }
 
-.banner-landing-image{
-  img{
+.banner-landing-image {
+  img {
     width: 40vw;
     max-height: 250px;
   }
 }
-.banner-text{
+.banner-text {
   padding-left: 1em;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  h3{
+  h3 {
     line-height: 1.3em;
     font-size: 1em;
   }
-  h2{
+  h2 {
     line-height: 1.2em;
     padding: 0.25em 0;
     font-size: 1.5em;
   }
-  .bigger{
+  .bigger {
     font-size: 125%;
   }
 }
 
-.page-wrapper{
+.page-wrapper {
   width: 100%;
   height: fit-content;
   display: flex;
@@ -248,14 +250,14 @@ nav{
   align-items: center;
 }
 
-.page-container{
+.page-container {
   width: 100%;
   height: fit-content;
   background-color: var(--primary-color);
   padding: 1em;
 }
 
-.page-header{
+.page-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -263,33 +265,33 @@ nav{
   text-align: center;
   color: white;
   padding: 1em;
-  h2{
+  h2 {
     font-size: 2em;
   }
-  h4{
+  h4 {
     font-size: 0.85em;
     line-height: 1.25em;
     padding: 1em 0;
   }
 }
-.page-content-container{
+.page-content-container {
   display: flex;
   flex-direction: column;
 }
 
-.page-image-container{
+.page-image-container {
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  .page-image{
+  .page-image {
     width: 100%;
     padding: 3em;
   }
 }
 
-.reasons-container{
-  .number-container{
+.reasons-container {
+  .number-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -298,11 +300,11 @@ nav{
     border-radius: 50%;
     border: 1.5px solid white;
     margin: 1em 0;
-    h1{
+    h1 {
       font-size: 250%;
     }
   }
-  p{
+  p {
     padding-top: 1em;
   }
   display: flex;
@@ -314,78 +316,80 @@ nav{
   padding: 1em;
 }
 
-.couple-reasons-container{
+.couple-reasons-container {
   display: flex;
   flex-direction: column;
 }
 
-.footer{
+.footer {
   width: 100%;
   height: 100%;
 }
-footer{
+footer {
   width: 100%;
   height: 100%;
   padding-top: 2em;
   display: flex;
   flex-direction: column;
 }
-.site-logo{
+.site-logo {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  img{
+  img {
     width: 15%;
   }
 }
-.section-links{
+.section-links {
   display: flex;
   width: 100%;
-  .left-links, .right-links{
+  .left-links,
+  .right-links {
     display: flex;
     flex-direction: column;
     padding: 0.75em;
-    h4{
-      padding-bottom: .75em;
+    h4 {
+      padding-bottom: 0.75em;
     }
   }
-  .left-links{
+  .left-links {
     width: 30%;
   }
-  .right-links{
+  .right-links {
     width: 70%;
   }
-  .nav-login-link, .nav-register-link{
+  .nav-login-link,
+  .nav-register-link {
     color: black;
     font-size: 75%;
   }
-  .nav-landing-links{
-    padding-bottom: .75em;
+  .nav-landing-links {
+    padding-bottom: 0.75em;
   }
   .nav-login-link:hover,
-  .nav-register-link:hover{
-    color: var(--secondary-color)
+  .nav-register-link:hover {
+    color: var(--secondary-color);
   }
 }
-.email-container{
+.email-container {
   display: flex;
   align-items: center;
-  .email-icon{
+  .email-icon {
     width: 15px;
     height: 15px;
   }
 }
 
 //Logged in landing page
-.quick-actions-title{
+.quick-actions-title {
   padding: 0.5em 0 0 0.5em;
 }
 .blog-card {
   display: flex;
   flex-direction: column;
   margin: 2em 1em;
-  box-shadow: 0 3px 7px -1px rgba(#000, .1);
+  box-shadow: 0 3px 7px -1px rgba(#000, 0.1);
   background: white;
   line-height: 1.4;
   border-radius: 5px;
@@ -415,9 +419,9 @@ footer{
     left: 0;
     background-size: cover;
     background-position: center;
-    transition: transform .2s;
+    transition: transform 0.2s;
   }
-  
+
   //Link To tasks
   .details {
     position: absolute;
@@ -425,8 +429,8 @@ footer{
     bottom: 0;
     left: -100%;
     margin: auto;
-    transition: left .2s;
-    background: rgba(#000, .8);
+    transition: left 0.2s;
+    background: rgba(#000, 0.8);
     color: white;
     padding: 10px;
     width: 100%;
@@ -438,9 +442,8 @@ footer{
 
     //This anchor tag is for the link
     a {
-      text-decoration:solid underline;
+      text-decoration: solid underline;
     }
-
   }
   .description {
     padding: 1rem;
@@ -463,7 +466,7 @@ footer{
   }
   //to ensure spacer between headers and paragraph
   #quicklinks_divider {
-    padding:0.5em;
+    padding: 0.5em;
   }
   //this is for little red thing above p tag
   p {
@@ -496,7 +499,6 @@ footer{
   width: 100%;
   margin: 0 auto;
 }
-
 
 .section-header {
   display: flex;
@@ -531,7 +533,7 @@ footer{
 // container for individual tasks
 .info-container-title {
   width: 100%;
-  background-image: linear-gradient( #e2fef3,#fdfcfb);
+  background-image: linear-gradient(#e2fef3, #fdfcfb);
 }
 .info-container-center-title {
   display: flex;
@@ -539,38 +541,39 @@ footer{
   justify-content: center;
   align-items: center;
   border: 5px solid black;
-  padding: 1rem ;
+  padding: 1rem;
   border-width: 0.25em 0.15em 0.25em 1.25em;
 }
 .normal-containter-title {
-  width:auto;
-  text-align:center;
+  width: auto;
+  text-align: center;
   padding: 0 5px 0 5px;
 }
 .description-container-title {
-  width:100%;
+  width: 100%;
   display: flex;
   align-items: center;
 }
 #info-button-pictures {
-  width:20px;
-  height:20px;
-  filter: invert(100%) sepia(6%) saturate(7500%) hue-rotate(209deg) brightness(107%) contrast(103%);
+  width: 20px;
+  height: 20px;
+  filter: invert(100%) sepia(6%) saturate(7500%) hue-rotate(209deg)
+    brightness(107%) contrast(103%);
 }
 
 .divider-task-title {
   font-weight: bold;
-  padding:0 1rem 0 1rem;
+  padding: 0 1rem 0 1rem;
   flex-direction: row;
   vertical-align: center;
-  float:left;
+  float: left;
 }
 
 // container for individual tasks
 .info-container {
   width: 100%;
   margin: 0 auto;
-  background-image: linear-gradient( #e2fef3,#fdfcfb);
+  background-image: linear-gradient(#e2fef3, #fdfcfb);
 }
 
 .info-container-center {
@@ -588,7 +591,7 @@ footer{
 
   h4 {
     font-weight: normal;
-    width:140px;
+    width: 140px;
     -ms-word-break: break-all;
     word-break: break-all;
     overflow-wrap: break-word !important;
@@ -598,7 +601,7 @@ footer{
 
 .tasks-description {
   align-items: left;
-  p{
+  p {
     font-weight: bold;
     -ms-word-break: break-all;
     word-break: break-all;
@@ -606,21 +609,21 @@ footer{
     word-break: break-word;
     font-weight: normal;
   }
-  height:auto;
+  height: auto;
 }
 
 #task-status {
-  float:right;
-  width:20px;
-  margin-right:50px;
+  float: right;
+  width: 20px;
+  margin-right: 50px;
   font-weight: normal;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
 .task-title {
   float: left;
-  width:auto;
-  height:auto;
+  width: auto;
+  height: auto;
   vertical-align: center;
 }
 
@@ -631,13 +634,13 @@ footer{
 
 .task-title-right {
   float: left;
-  width:auto;
-  height:auto;
+  width: auto;
+  height: auto;
   vertical-align: center;
-  padding:0 3%;
+  padding: 0 3%;
 }
 
-.submit-button{
+.submit-button {
   width: 80px;
   padding: 1.1em !important;
   border-radius: 5px;
@@ -652,10 +655,10 @@ footer{
   border-radius: 10px;
   margin: 0px 5px;
   align-self: center;
-  background-image:linear-gradient(green, #639191);
+  background-image: linear-gradient(green, #639191);
 }
 #delete-task-button {
-  background-image:radial-gradient(red, darkred );
+  background-image: radial-gradient(red, darkred);
 }
 
 /* Modal */
@@ -687,7 +690,7 @@ footer{
 
 .modal {
   z-index: 100;
-	background: #f4f7f8;
+  background: #f4f7f8;
   align-items: center;
   justify-content: center;
   margin: 0 auto;
@@ -733,30 +736,29 @@ footer{
 }
 
 .option-styling {
-  background: rgba(255,255,255,.4);
-	border: none;
-	border-radius: 0.5em;
-	font-size: 0.75;
-	outline: 0;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  border-radius: 0.5em;
+  font-size: 0.75;
+  outline: 0;
   padding: 0.5em;
-	width: 100%;
-	background-color: #e8eeef;
-	-webkit-box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
-	box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+  width: 100%;
+  background-color: #e8eeef;
+  -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
 }
 
 #modal-form-button {
-  height:45px;
-  width:100%;
-  margin-top:35px;
-  background-color: #04AA6D;
+  height: 45px;
+  width: 100%;
+  margin-top: 35px;
+  background-color: #04aa6d;
   border: none;
   color: white;
   text-align: center;
   display: inline-block;
   border-radius: 10px;
 }
-
 
 /* Full-width inputs */
 input[type="text"],
@@ -831,14 +833,14 @@ input[type="password"] {
 //Register and Login
 .form-wrapper {
   margin: 0 auto;
-  text-align:center;
-  width:60vw !important;
-  min-width:350px;
-  max-width:800px;
+  text-align: center;
+  width: 60vw !important;
+  min-width: 350px;
+  max-width: 800px;
   vertical-align: center;
 }
 
-.form-spacer{
+.form-spacer {
   height: 100vh;
   display: flex;
   align-items: center;
@@ -854,58 +856,57 @@ input[type="password"] {
     width: 100%;
   }
 
-    //Tasks Page
+  //Tasks Page
   .info-container-center-title {
-    padding: .75rem 0;
-    h3{
-        font-size: .5rem !important;
-      }
+    padding: 0.75rem 0;
+    h3 {
+      font-size: 0.5rem !important;
+    }
   }
   .divider-task-title {
-    padding:0 0.05rem 0 0.05rem;
+    padding: 0 0.05rem 0 0.05rem;
   }
-    
-    
+
   .task-button {
     width: 20px !important;
     padding: 6px 6px !important;
     border-radius: 5px;
     margin: 0px 5px;
   }
-  #info-button-pictures{
+  #info-button-pictures {
     width: 10px;
     height: 10px;
   }
-  .info-container-center{
-    h4{
+  .info-container-center {
+    h4 {
       font-size: 0.45rem;
     }
-    #task-status{
+    #task-status {
       font-size: 0.4rem;
     }
   }
-  .tasks-description{
-    p{
+  .tasks-description {
+    p {
       font-size: 0.3rem;
     }
   }
 
   //Nav for user
-  .nav-link{
+  .nav-link {
     height: 40px !important;
     width: 45px !important;
-    padding-top:25px !important;
+    padding-top: 25px !important;
     font-size: 0.75rem !important;
   }
 
-  .nav_logout{
-    float:right;
-    padding-right:15px !important;
-    padding-top:10px !important;
+  .nav_logout {
+    float: right;
+    padding-right: 15px !important;
+    padding-top: 10px !important;
   }
 
-  .logout{
-    padding-right:15px !important;
+  .logout {
+    padding-right: 15px !important;
     border-radius: 20px !important;
     font-size: 0.65rem !important;
     width: 65px;
@@ -913,16 +914,17 @@ input[type="password"] {
 }
 
 /* Smaller devices */
-@media screen and (min-width: 360px){
+@media screen and (min-width: 360px) {
   //Landing Page
-  .section-links{
-    .left-links, .right-links{
+  .section-links {
+    .left-links,
+    .right-links {
       padding: 1em;
       width: 50%;
     }
   }
 
-  .page-container{
+  .page-container {
     width: 90%;
     padding: 2em;
   }
@@ -930,7 +932,7 @@ input[type="password"] {
 
 @media only screen and (max-width: 450px) {
   //home page after login
-  .blog-card .description{
+  .blog-card .description {
     padding: 0.5rem;
   }
 
@@ -938,11 +940,11 @@ input[type="password"] {
     margin: 1em 1em;
   }
 
-  .blog-card #quicklinks_divider{
+  .blog-card #quicklinks_divider {
     padding: 0.25em;
   }
 
-  .quick-actions-title{
+  .quick-actions-title {
     font-size: 1.75rem;
   }
 
@@ -950,188 +952,189 @@ input[type="password"] {
     font-size: 1.5rem;
   }
 
-
   //Tasks Page
   .info-container-center-title {
     padding: 1rem 0.25rem;
-    h3{
-      font-size: .75rem;
+    h3 {
+      font-size: 0.75rem;
     }
   }
   .divider-task-title {
-    padding:0 0.5rem 0 0.5rem;
+    padding: 0 0.5rem 0 0.5rem;
   }
 
   .task-button {
     width: 30px !important;
     margin: 0px 5px;
   }
-  #info-button-pictures{
+  #info-button-pictures {
     width: 15px;
     height: 15px;
   }
 
   // Nav for logged in user
   //   Nav for user
-    .nav-link{
-      width: 60px;
-      font-size: 1rem;;
-    }
-  
-    .nav_logout{
-      padding-right:10px;
-    }
-  
-    .logout{
-      border-radius: 20px;
-      font-size: .85rem;
-    }
+  .nav-link {
+    width: 60px;
+    font-size: 1rem;
+  }
+
+  .nav_logout {
+    padding-right: 10px;
+  }
+
+  .logout {
+    border-radius: 20px;
+    font-size: 0.85rem;
+  }
 }
 
 @media only screen and (min-width: 480px) {
   //landing page
-  .container-main{
+  .container-main {
     padding: 1em 2em;
   }
 
-  nav{
-    .nav-login-link{
+  nav {
+    .nav-login-link {
       padding: 1em 4em;
     }
-  .nav-register-links{
+    .nav-register-links {
       height: 40px;
       width: 90px;
       margin: 1em;
     }
   }
-  .logo-main{
+  .logo-main {
     img {
       width: 50px;
       height: 50px;
     }
   }
 
-  .banner{
+  .banner {
     flex-direction: unset;
     justify-content: unset;
     margin: 4em 0;
   }
-  .banner-landing-image{
+  .banner-landing-image {
     width: 50%;
   }
-  .banner-text{
+  .banner-text {
     width: 50%;
-    h3{
+    h3 {
       font-size: 1.5em;
     }
-    h2{
+    h2 {
       font-size: 2.5em;
     }
-    .bigger{
+    .bigger {
       font-size: 150%;
     }
   }
 
-  .page-header{
+  .page-header {
     padding: 2em 4em;
-    h2{
+    h2 {
       font-size: 2.5em;
     }
-    h4{
+    h4 {
       font-size: unset;
       line-height: unset;
     }
-}
+  }
 
-  .page-container{
+  .page-container {
     width: 80%;
     padding: 2em;
   }
-  .page-content-container{
+  .page-content-container {
     align-items: center;
     justify-content: center;
   }
-  .page-content-center{
+  .page-content-center {
     width: 100%;
   }
-  .page-image-container{
+  .page-image-container {
     width: 100%;
     height: 100%;
   }
 
-  .reasons-container{
+  .reasons-container {
     width: 100%;
   }
 
-  footer{
+  footer {
     padding: 2em;
     flex-direction: unset;
   }
 
-  .site-logo{
+  .site-logo {
     justify-content: flex-start;
     width: 50%;
-    img{
+    img {
       width: 25%;
     }
   }
-  .section-links{
+  .section-links {
     width: 50%;
-    .left-links, .right-links{
+    .left-links,
+    .right-links {
       padding: 1em;
     }
   }
-  .email-container{
-    .email-icon{
+  .email-container {
+    .email-icon {
       width: 15px;
       height: 5px;
     }
   }
 }
 
-@media only screen and (min-width: 768px){
-  .banner{
+@media only screen and (min-width: 768px) {
+  .banner {
     align-items: unset;
   }
-  .page-content-container{
+  .page-content-container {
     flex-direction: row;
   }
-  .page-content-center{
+  .page-content-center {
     width: 50%;
   }
-  .page-image-container{
-    width: 50%;
-  }
-
-  .reasons-container{
+  .page-image-container {
     width: 50%;
   }
 
-  .couple-reasons-container{
+  .reasons-container {
+    width: 50%;
+  }
+
+  .couple-reasons-container {
     flex-direction: row;
   }
 
-  .section-links{
-    .left-links, .right-links{
+  .section-links {
+    .left-links,
+    .right-links {
       padding: 1em;
     }
   }
-  .site-logo{
-    img{
+  .site-logo {
+    img {
       width: 10%;
     }
   }
 
-  footer{
-    padding:2em 4em;
+  footer {
+    padding: 2em 4em;
   }
 
-  .email-container{
-    .email-icon{
+  .email-container {
+    .email-icon {
       width: 25px;
       height: 25px;
     }
-    p{
+    p {
       font-size: 90%;
     }
   }
