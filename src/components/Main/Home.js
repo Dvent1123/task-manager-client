@@ -4,6 +4,7 @@ import jwt_decode from "jwt-decode";
 import { SocketContext } from "../../services/socketService";
 import Nav from "../Main/Nav";
 import QuickLinks from "../../components/Helpers/QuickLinks";
+import Tabs from '../Main/Tabs'
 
 const Home = () => {
   let realToken = useRef();
@@ -31,7 +32,8 @@ const Home = () => {
         <div className="section-title">
           <h1 className="quick-actions-title">Quick Actions:</h1>
         </div>
-        <QuickLinks token={realToken.current} />
+        <Tabs token={realToken.current}/>
+        {/* <QuickLinks token={realToken.current} /> */}
       </div>
     </div>
   );
