@@ -3,12 +3,12 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
 import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import { Link } from "react-router-dom";
 
 function Copyright(props) {
   return (
@@ -41,16 +41,31 @@ const SettingsForm = ({ onSubmit, user, setUser }) => {
               marginTop: 8,
               display: "flex",
               flexDirection: "column",
-              alignItems: "center"
+              alignItems: "center",
+              width: "100%"
             }}
           >
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "flex-start",
+                width: "100%"
+              }}
+            >
+              <Link
+                style={{ color: "black", textDecoration: "none" }}
+                to="/home"
+              >
+                <ArrowBackIosIcon />
+              </Link>
+            </Box>
             <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-              <LockOutlinedIcon />
+              {user.username[0]}
             </Avatar>
             <Typography component="h1" variant="h5">
-              Sign in
+              User Settings
             </Typography>
-            <Box component="form" noValidate sx={{ mt: 1 }}>
+            <Box component="form" onSubmit={onSubmit} noValidate sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
                 required
@@ -70,6 +85,7 @@ const SettingsForm = ({ onSubmit, user, setUser }) => {
                 id="pass"
                 label="Password"
                 name="password"
+                type="password"
                 autoComplete="pass"
                 defaultValue={user.new_password}
                 onChange={e =>
@@ -81,9 +97,10 @@ const SettingsForm = ({ onSubmit, user, setUser }) => {
                 margin="normal"
                 required
                 fullWidth
-                id="pass"
+                id="pass2"
                 label="Password Confirmation"
                 name="password"
+                type="password"
                 autoComplete="password"
                 defaultValue={user.new_password_confirmation}
                 onChange={e =>
@@ -116,17 +133,21 @@ const SettingsForm = ({ onSubmit, user, setUser }) => {
                 defaultValue={user.role}
                 onChange={e => setUser({ ...user, role: e.target.value })}
                 autoFocus
+                disabled
               />
               <TextField
                 margin="normal"
                 required
                 fullWidth
-                id="pass"
+                id="password"
                 label="Confirm Changes By Typing in Password"
                 name="password"
+                type="password"
                 autoComplete="password"
-                defaultValue={user.password}
-                onChange={e => setUser({ ...user, password: e.target.value })}
+                defaultValue={user.current_password}
+                onChange={e =>
+                  setUser({ ...user, current_password: e.target.value })
+                }
                 autoFocus
               />
               <Button

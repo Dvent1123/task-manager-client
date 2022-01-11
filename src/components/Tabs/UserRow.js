@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
-import UserModal from "./UserModal";
+import User from "../Modals/User";
 import IconButton from "@mui/material/IconButton";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -54,10 +54,10 @@ const UserRow = ({ teammate, socket, user }) => {
       key={_id}
       sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
     >
-      <TableCell align="right">{teammate.username}</TableCell>
-      <TableCell align="right">{teammate.role}</TableCell>
-      <TableCell align="right">{teammate.job}</TableCell>
-      <TableCell align="right">
+      <TableCell sx={{ paddingRight: {xs: 1, s: 2 ,md: 5}, paddingLeft: {xs: 1, s: 2 ,md: 5} ,width: {xs: "5%",md: "25%"} }} align="center">{teammate.username}</TableCell>
+      <TableCell sx={{ paddingRight: {xs: 1, s: 2 ,md: 5}, paddingLeft: {xs: 1, s: 2 ,md: 5} ,width: {xs: "5%",md: "25%"} }} align="center">{teammate.role}</TableCell>
+      <TableCell sx={{ paddingRight: {xs: 1, s: 2 ,md: 5}, paddingLeft: {xs: 1, s: 2 ,md: 5} ,width: {xs: "5%",md: "25%"} }} align="center">{teammate.job}</TableCell>
+      <TableCell sx={{ paddingRight: {xs: 1, s: 2 ,md: 5}, paddingLeft: {xs: 1, s: 2 ,md: 5} ,width: {xs: "5%",md: "25%"} }} align="center">
         <IconButton onClick={handleOpen}>
           <EditIcon />
         </IconButton>
@@ -65,7 +65,7 @@ const UserRow = ({ teammate, socket, user }) => {
           <DeleteIcon />
         </IconButton>
       </TableCell>
-      <UserModal
+      <User
         open={open}
         handleClose={handleClose}
         onSubmit={onSubmit}

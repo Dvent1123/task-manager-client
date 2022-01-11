@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
-import BasicModal from "./BasicModal";
+import Task from "../Modals/Task";
 import IconButton from "@mui/material/IconButton";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
+import Typography from "@mui/material/Typography";
 
 const TaskRow = ({ task, users, socket, username }) => {
   const { _id, assignedTo, desc, status, createdBy, roomId } = task;
@@ -53,12 +54,16 @@ const TaskRow = ({ task, users, socket, username }) => {
       key={_id}
       sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
     >
-      <TableCell align="left">{assignedTo}</TableCell>
-      <TableCell component="th" scope="row">
-        {desc}
+      <TableCell sx={{ paddingRight: {xs: 1, s: 2 ,md: 5}, paddingLeft: {xs: 1, s: 2 ,md: 5} ,width: {xs: "5%",md: "25%"} }} align="center">
+        {assignedTo}
       </TableCell>
-      <TableCell align="right">{encodeStatus(status)}</TableCell>
-      <TableCell align="right">
+      <TableCell sx={{ paddingRight:{xs: 1, s: 2 ,md: 5}, paddingLeft: {xs: 1, s: 2 ,md: 5} ,width: {xs: "5%",md: "25%"} , maxWidth: 100}} align="center" component="th" scope="row">
+        <Typography display="inline-block" align="left">
+        {desc}
+        </Typography>
+      </TableCell>
+      <TableCell sx={{ paddingRight:{xs: 1, s: 2 ,md: 5}, paddingLeft: {xs: 1, s: 2 ,md: 5}, width: {xs: "5%",md: "25%"} }} align="center">{encodeStatus(status)}</TableCell>
+      <TableCell sx={{ paddingRight: {xs: 1, s: 2 ,md: 5}, paddingLeft: {xs: 1, s: 2 ,md: 5}, width: {xs: "5%",md: "25%"}  }} align="right">
         <IconButton onClick={handleOpen}>
           <EditIcon />
         </IconButton>
@@ -66,7 +71,7 @@ const TaskRow = ({ task, users, socket, username }) => {
           <DeleteIcon />
         </IconButton>
       </TableCell>
-      <BasicModal
+      <Task
         open={open}
         handleClose={handleClose}
         onSubmit={onSubmit}

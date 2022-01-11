@@ -9,7 +9,7 @@ import TableFooter from "@mui/material/TableFooter";
 import TablePagination from "@mui/material/TablePagination";
 import Paper from "@mui/material/Paper";
 import UserRow from "./UserRow";
-import { getAllUsers } from "../../services/usersServices";
+import { getAllUsers } from "../../services/user";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 const generator = require("generate-password");
@@ -20,7 +20,6 @@ const UserTab = ({ token, user, socket }) => {
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   const [newTeammate, setNewTeammate] = useState({
-    _id: 0,
     username: "",
     job: "",
     role: "User",
@@ -115,9 +114,9 @@ const UserTab = ({ token, user, socket }) => {
         <Table sx={{ minWidth: 1000, width: "100%" }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell align="right">Name</TableCell>
-              <TableCell align="right">Role</TableCell>
-              <TableCell align="right">Job Title</TableCell>
+              <TableCell sx={{ paddingRight: {xs: 1, s: 2 ,md: 5}, paddingLeft: {xs: 1, s: 2 ,md: 5} ,width: {xs: "5%",md: "25%"} }} align="center">Name</TableCell>
+              <TableCell sx={{ paddingRight: {xs: 1, s: 2 ,md: 5}, paddingLeft: {xs: 1, s: 2 ,md: 5} ,width: {xs: "5%",md: "25%"} }} align="center">Role</TableCell>
+              <TableCell sx={{ paddingRight: {xs: 1, s: 2 ,md: 5}, paddingLeft: {xs: 1, s: 2 ,md: 5} ,width: {xs: "5%",md: "25%"} }} align="center">Job Title</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -148,6 +147,7 @@ const UserTab = ({ token, user, socket }) => {
                 colSpan={3}
                 count={users.length}
                 rowsPerPage={5}
+                rowsPerPageOptions={[]}
                 page={page}
                 onPageChange={handleChangePage}
               />

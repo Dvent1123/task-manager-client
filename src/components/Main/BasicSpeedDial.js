@@ -4,10 +4,9 @@ import SpeedDialIcon from "@mui/material/SpeedDialIcon";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
 import PersonAddAltIcon from "@mui/icons-material/PersonAddAlt";
 import AddTaskIcon from "@mui/icons-material/AddTask";
-import BasicModal from "./BasicModal";
-import UserModal from "./UserModal";
-import { getAllUsers } from "../../services/usersServices";
-import Fab from "@mui/material/Fab";
+import Task from "../Modals/Task";
+import User from "../Modals/User";
+import { getAllUsers } from "../../services/user";
 
 export default function BasicSpeedDial({ token, user, socket }) {
   const [openUserModal, setOpenUserModal] = useState(false);
@@ -57,7 +56,6 @@ export default function BasicSpeedDial({ token, user, socket }) {
     const getUsers = () => {
       getAllUsers(token)
         .then(res => {
-          console.log(res);
           var newArrayUserofObject = Object.values(res.usersArray);
           let userNames = newArrayUserofObject.map(user => {
             return user.username;
@@ -139,7 +137,7 @@ export default function BasicSpeedDial({ token, user, socket }) {
           }}
         />
       </SpeedDial>
-      <BasicModal
+      <Task
         open={openTaskModal}
         handleClose={handleCloseTaskModal}
         onSubmit={onSubmitTask}
@@ -147,7 +145,7 @@ export default function BasicSpeedDial({ token, user, socket }) {
         setNewTask={setNewTask}
         users={users}
       />
-      <UserModal
+      <User
         open={openUserModal}
         handleClose={handleCloseUserModal}
         onSubmit={onSubmitUser}

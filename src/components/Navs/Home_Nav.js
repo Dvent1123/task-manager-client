@@ -19,14 +19,14 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Nav = ({user}) => {
+const Home_Nav = ({ user }) => {
   // const newInitials = userInitial.toUpperCase()
 
-  const [userInitial, setUserInitial] = useState('R')
+  const [userInitial, setUserInitial] = useState("R");
 
   useEffect(() => {
-    setUserInitial(user.username[0])
-  }, [user.username])
+    setUserInitial(user.username[0]);
+  }, [user.username]);
 
   const handleLogout = () => {
     sessionStorage.clear();
@@ -61,13 +61,15 @@ const Nav = ({user}) => {
               alignItems: "center"
             }}
           >
-            <img src={landinglogo} alt="scroll" className={classes.logo} />
+            <Link style={{ color: "black", textDecoration: "none" }} to="/home">
+              <img src={landinglogo} alt="scroll" className={classes.logo} />
+            </Link>
           </Typography>
           <Toolbar>
             <Box>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar sx={{ bgcolor: "#6c63ff" }}>{userInitial}</Avatar>
+                  <Avatar sx={{ bgcolor: "#6c63ff" }}>{userInitial}</Avatar>
                 </IconButton>
               </Tooltip>
               <Menu
@@ -120,4 +122,4 @@ const Nav = ({user}) => {
   return <Fragment>{renderNav()}</Fragment>;
 };
 
-export default Nav;
+export default Home_Nav;

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { loginUser } from "../../services/loginServices";
+import { loginUser } from "../../services/login";
 import useToken from "../../utils/useToken";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";

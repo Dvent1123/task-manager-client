@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import useToken from "../../utils/useToken";
 import jwt_decode from "jwt-decode";
-import { SocketContext } from "../../services/socketService";
-import Nav from "../Main/Nav";
-import Tabs from "../Main/Tabs";
+import { SocketContext } from "../../services/socket";
+import HomeNav from "../Navs/Home_Nav";
+import Tabs from "../Tabs/Tabs";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import { ToastContainer } from "react-toastify";
@@ -15,8 +15,6 @@ const Home = () => {
   const parseToken = JSON.parse(token);
   realToken.current = parseToken.token;
   const socket = useContext(SocketContext);
-
-  console.log(token)
 
   const [user, setUser] = useState({
     username: "",
@@ -52,7 +50,7 @@ const Home = () => {
   return (
     <Container maxWidth="xl">
       <ToastContainer />
-      <Nav user={user}/>
+      <HomeNav user={user} />
       <Box
         sx={{
           width: "100%",
@@ -67,7 +65,7 @@ const Home = () => {
       >
         <Tabs token={realToken.current} user={user} socket={socket} />
       </Box>
-      <BasicSpeedDial token={realToken.current} user={user} socket={socket}/>
+      <BasicSpeedDial token={realToken.current} user={user} socket={socket} />
     </Container>
   );
 };

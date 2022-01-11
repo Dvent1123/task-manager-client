@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import useToken from "../../utils/useToken";
 import jwt_decode from "jwt-decode";
-import { SocketContext } from "../../services/socketService";
+import { SocketContext } from "../../services/socket";
 import Container from "@mui/material/Container";
 import SettingsForm from "./SettingsForm";
-import { getUser } from "../../services/usersServices";
+import { getUser } from "../../services/user";
 import { ToastContainer, toast } from "react-toastify";
+import HomeNav from '../Navs/Home_Nav'
 import "react-toastify/dist/ReactToastify.min.css";
 
 const Settings = () => {
@@ -43,7 +44,8 @@ const Settings = () => {
       );
       socket.removeAllListeners();
     };
-  }, [socket]);
+  });
+
 
   useEffect(() => {
     const getUserInfo = async () => {
@@ -51,6 +53,7 @@ const Settings = () => {
         .then(res => {
           setUser({
             ...user,
+            id: res.currentUser._id,
             currentUser: res.currentUser.username,
             username: res.currentUser.username,
             role: res.currentUser.role,
@@ -64,22 +67,29 @@ const Settings = () => {
   }, []);
 
   useEffect(() => {
-    setUser(user);
+    socket.on("updatedSettings", result => {
+      const { success,data, message } = result;
+      if (!success) {
+        toast.error(message);
+      } else {
+        setUser({...user, username: ''})
+        toast.success(message);
+        setUser({id: data._id,
+        currentUser: data.username,
+        username: data.username,
+        roomId: data.roomId,
+        current_password: "",
+        new_password: "",
+        new_password_confirmation: "",
+        role: data.role,
+        job: data.job})
+      }
+    });
   }, [user]);
+
 
   const onSubmit = e => {
     e.preventDefault();
-    // const newUser = {
-    //   id: currentUser.id,
-    //   currentUser: currentUser.username,
-    //   username: userName,
-    //   roomId: decoded.roomId,
-    //   current_password: password,
-    //   new_password: newPassword,
-    //   new_password_confirmation: newPasswordConfirmation,
-    //   role: role,
-    //   job: job
-    // };
 
     socket.emit("updateUserSettings", user);
   };
@@ -87,6 +97,7 @@ const Settings = () => {
   return (
     <Container maxWidth="xl">
       <ToastContainer />
+      <HomeNav user={user}/>
       {user.username ? (
         <SettingsForm onSubmit={onSubmit} user={user} setUser={setUser} />
       ) : (

@@ -19,7 +19,7 @@ const style = {
   p: 4
 };
 
-const BasicModal = ({
+const User = ({
   open,
   handleClose,
   onSubmit,
@@ -110,4 +110,4 @@ const BasicModal = ({
   );
 };
 
-export default BasicModal;
+export default User;

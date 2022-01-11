@@ -2,7 +2,7 @@ import React from "react";
 import mainLandingImage from "../../assets/main_image.svg";
 import tasksImage from "../../assets/tasks.svg";
 import landinglogo from "../../assets/logo512.jpg";
-import NavBar from "../Main/NavBar";
+import LandingNav from "../Navs/Landing_Nav";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -30,11 +30,11 @@ const Landing = () => {
     <>
       <ThemeProvider theme={theme}>
         <Container maxWidth="xl" className={classes.mainContainer}>
-          <NavBar />
+          <LandingNav />
           <Box
             sx={{
               width: "100%",
-              height: { xs: "100vh", md: "70vh" },
+              height: { xs: "100vh", md: "65vh", xxl:"50vh" },
               display: "flex",
               flexDirection: { xs: "column", md: "row" },
               margin: 0

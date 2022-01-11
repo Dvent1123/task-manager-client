@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const ResponsiveAppBar = () => {
+const Landing_Nav = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const classes = useStyles();
 
@@ -139,4 +139,4 @@ const ResponsiveAppBar = () => {
     </AppBar>
   );
 };
-export default ResponsiveAppBar;
+export default Landing_Nav;

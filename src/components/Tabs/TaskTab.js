@@ -8,10 +8,11 @@ import TableRow from "@mui/material/TableRow";
 import TableFooter from "@mui/material/TableFooter";
 import TablePagination from "@mui/material/TablePagination";
 import Paper from "@mui/material/Paper";
-import { getAllTasks } from "../../services/tasksService";
+import { getAllTasks } from "../../services/task";
 import TaskRow from "./TaskRow";
-import { getAllUsers } from "../../services/usersServices";
+import { getAllUsers } from "../../services/user";
 import { toast } from "react-toastify";
+import Grid from '@mui/material/Grid';
 import "react-toastify/dist/ReactToastify.min.css";
 
 const TaskTab = ({ token, user, socket }) => {
@@ -96,14 +97,14 @@ const TaskTab = ({ token, user, socket }) => {
   };
 
   return (
-    <>
-      <TableContainer component={Paper} width="100%">
+  <Grid item>
+  <TableContainer component={Paper} width="100%">
         <Table sx={{ minWidth: 1000, width: "100%" }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell align="left">Assigned</TableCell>
-              <TableCell>Description</TableCell>
-              <TableCell align="right">Status</TableCell>
+              <TableCell sx={{ paddingRight: {xs: 1, s: 2 ,md: 5}, paddingLeft: {xs: 1, s: 2 ,md: 5} ,width: {xs: "5%",md: "25%"} }} align="center">Assigned</TableCell>
+              <TableCell sx={{ paddingRight: {xs: 1, s: 2 ,md: 5}, paddingLeft: {xs: 1, s: 2 ,md: 5} ,width: {xs: "5%",md: "25%"} }} align="center">Description</TableCell>
+              <TableCell sx={{ paddingRight: {xs: 1, s: 2 ,md: 5}, paddingLeft: {xs: 1, s: 2 ,md: 5} ,width: {xs: "5%",md: "25%"} }} align="center">Status</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -123,6 +124,7 @@ const TaskTab = ({ token, user, socket }) => {
                 colSpan={3}
                 count={tasks.length}
                 rowsPerPage={5}
+                rowsPerPageOptions={[]}
                 page={page}
                 onPageChange={handleChangePage}
               />
@@ -130,7 +132,7 @@ const TaskTab = ({ token, user, socket }) => {
           </TableFooter>
         </Table>
       </TableContainer>
-    </>
+      </Grid>
   );
 };
 

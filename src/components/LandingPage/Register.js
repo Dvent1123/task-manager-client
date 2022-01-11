@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { registerUser } from "../../services/loginServices";
+import { registerUser } from "../../services/login";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import Avatar from "@mui/material/Avatar";
