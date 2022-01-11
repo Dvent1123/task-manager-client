@@ -1,4 +1,4 @@
-import * as React from "react";
+import  React, {useEffect} from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
@@ -27,6 +27,9 @@ const BasicModal = ({
   setNewTask,
   users
 }) => {
+  useEffect(() => {
+    setNewTask(task);
+  }, [task]);
   const { createdBy, assignedTo, desc, status } = task;
   return (
     <>
@@ -40,12 +43,7 @@ const BasicModal = ({
           <Typography component="h1" variant="h5">
             Edit Profile
           </Typography>
-          <Box
-            component="form"
-            onSubmit={onSubmit}
-            noValidate
-            sx={{ mt: 1 }}
-          >
+          <Box component="form" onSubmit={onSubmit} noValidate sx={{ mt: 1 }}>
             <Typography component="h1" variant="h5">
               Created By: {createdBy}
             </Typography>

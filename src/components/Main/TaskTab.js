@@ -1,63 +1,25 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
+import TableFooter from "@mui/material/TableFooter";
+import TablePagination from "@mui/material/TablePagination";
 import Paper from "@mui/material/Paper";
-import useToken from "../../utils/useToken";
-import jwt_decode from "jwt-decode";
 import { getAllTasks } from "../../services/tasksService";
-import { SocketContext } from "../../services/socketService";
 import TaskRow from "./TaskRow";
 import { getAllUsers } from "../../services/usersServices";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 
-const TaskTab = () => {
-    /// We can pull out all the token and current user stuff from both the TaskTab and the UserTab
-    // We can put all of that plus the tocket stuff in the Tabs component and then just pass these down
-    // as props instead
-  const { token } = useToken();
-  const [decoded, setDecoded] = useState("");
-  let realToken = useRef();
-  const socket = useContext(SocketContext);
-  const parseToken = JSON.parse(token);
-  realToken.current = parseToken.token;
-
+const TaskTab = ({ token, user, socket }) => {
   const [tasks, setTasks] = useState([]);
   const [users, setUsers] = useState([]);
-  const [username, setUsername] = useState('')
+  const [page, setPage] = React.useState(0);
 
   useEffect(() => {
-    setDecoded(jwt_decode(realToken.current));
-    socket.emit(
-      "subscribe",
-      jwt_decode(realToken.current).roomId,
-      jwt_decode(realToken.current).username
-    );
-    setUsername(decoded.username)
-
-    return () => {
-      socket.emit(
-        "unsubscribe",
-        jwt_decode(realToken.current).roomId,
-        jwt_decode(realToken.current).username
-      );
-      socket.removeAllListeners();
-    };
-  }, [socket, token, decoded.username]);
-
-  useEffect(() => {
-    socket.on("joined", message => {
-      console.log(message);
-    });
-
-    socket.on("joined", () =>
-      socket.emit("subscribe", decoded.roomId, decoded.username)
-    );
-
     socket.on("left", message => console.log(message));
 
     socket.on("TaskAdded", result => {
@@ -100,12 +62,12 @@ const TaskTab = () => {
     return () => {
       socket.removeAllListeners();
     };
-  }, [socket, tasks]);
+  }, [tasks]);
 
   // Gets Tasks
   useEffect(() => {
     const getTasks = () => {
-      getAllTasks(realToken.current)
+      getAllTasks(token)
         .then(res => {
           var newArrayTaskofObject = Object.values(res.tasksArray);
           setTasks(newArrayTaskofObject);
@@ -113,12 +75,9 @@ const TaskTab = () => {
         .catch(err => console.log(err));
     };
     getTasks();
-  }, []);
 
-  // Gets Users
-  useEffect(() => {
     const getUsers = () => {
-      getAllUsers(realToken.current)
+      getAllUsers(token)
         .then(res => {
           var newArrayUserofObject = Object.values(res.usersArray);
           let userNames = newArrayUserofObject.map(user => {
@@ -132,9 +91,12 @@ const TaskTab = () => {
     getUsers();
   }, []);
 
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
   return (
     <>
-      <ToastContainer />
       <TableContainer component={Paper} width="100%">
         <Table sx={{ minWidth: 1000, width: "100%" }} aria-label="simple table">
           <TableHead>
@@ -151,10 +113,21 @@ const TaskTab = () => {
                 task={task}
                 users={users}
                 socket={socket}
-                username={username}
+                username={user.username}
               />
             ))}
           </TableBody>
+          <TableFooter>
+            <TableRow>
+              <TablePagination
+                colSpan={3}
+                count={tasks.length}
+                rowsPerPage={5}
+                page={page}
+                onPageChange={handleChangePage}
+              />
+            </TableRow>
+          </TableFooter>
         </Table>
       </TableContainer>
     </>

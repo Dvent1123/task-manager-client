@@ -24,7 +24,8 @@ const TaskRow = ({ task, users, socket, username }) => {
     roomId: roomId,
     assignedTo: assignedTo,
     status: status,
-    desc: desc
+    desc: desc,
+    userName: username
   });
 
   const onSubmit = e => {

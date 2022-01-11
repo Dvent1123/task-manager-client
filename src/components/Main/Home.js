@@ -1,10 +1,13 @@
-import React, { useEffect, useRef, useContext } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import useToken from "../../utils/useToken";
 import jwt_decode from "jwt-decode";
 import { SocketContext } from "../../services/socketService";
 import Nav from "../Main/Nav";
-import QuickLinks from "../../components/Helpers/QuickLinks";
-import Tabs from '../Main/Tabs'
+import Tabs from "../Main/Tabs";
+import Box from "@mui/material/Box";
+import Container from "@mui/material/Container";
+import { ToastContainer } from "react-toastify";
+import BasicSpeedDial from "./BasicSpeedDial";
 
 const Home = () => {
   let realToken = useRef();
@@ -13,29 +16,59 @@ const Home = () => {
   realToken.current = parseToken.token;
   const socket = useContext(SocketContext);
 
-  useEffect(() => {
-    let decoded = jwt_decode(realToken.current);
+  console.log(token)
 
-    socket.on("joined", message => console.log(message));
-    socket.emit("subscribe", decoded.roomId, decoded.username)
-
-    return () => {
-      socket.emit('unsubscribe', decoded.roomId, decoded.username)
-      socket.removeAllListeners();
-    };
+  const [user, setUser] = useState({
+    username: "",
+    roomId: 0,
+    role: "User"
   });
 
+  useEffect(() => {
+    socket.on("joined", message => console.log(message));
+    socket.emit(
+      "subscribe",
+      jwt_decode(realToken.current).roomId,
+      jwt_decode(realToken.current).username
+    );
+
+    setUser({
+      ...user,
+      username: jwt_decode(realToken.current).username,
+      role: jwt_decode(realToken.current).role,
+      roomId: jwt_decode(realToken.current).roomId
+    });
+
+    return () => {
+      socket.emit(
+        "unsubscribe",
+        jwt_decode(realToken.current).roomId,
+        jwt_decode(realToken.current).username
+      );
+      socket.removeAllListeners();
+    };
+  }, [socket]);
+
   return (
-    <div className="wrapper">
-      <Nav token={realToken.current} />
-      <div className="container">
-        <div className="section-title">
-          <h1 className="quick-actions-title">Quick Actions:</h1>
-        </div>
-        <Tabs token={realToken.current}/>
-        {/* <QuickLinks token={realToken.current} /> */}
-      </div>
-    </div>
+    <Container maxWidth="xl">
+      <ToastContainer />
+      <Nav user={user}/>
+      <Box
+        sx={{
+          width: "100%",
+          height: { xs: "100vh", md: "70vh" },
+          display: "flex",
+          flexDirection: { xs: "column", md: "row" },
+          justifyContent: "center",
+          alignItems: "center",
+          margin: 0
+        }}
+        padding={1}
+      >
+        <Tabs token={realToken.current} user={user} socket={socket} />
+      </Box>
+      <BasicSpeedDial token={realToken.current} user={user} socket={socket}/>
+    </Container>
   );
 };
 

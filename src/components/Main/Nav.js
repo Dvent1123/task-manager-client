@@ -1,64 +1,123 @@
-import React, {Fragment} from 'react'
-import { Link } from 'react-router-dom'
-import jwt_decode from 'jwt-decode'
+import React, { Fragment, useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Menu from "@mui/material/Menu";
+import Container from "@mui/material/Container";
+import Avatar from "@mui/material/Avatar";
+import Tooltip from "@mui/material/Tooltip";
+import MenuItem from "@mui/material/MenuItem";
+import { makeStyles } from "@material-ui/core/styles";
+import landinglogo from "../../assets/logo512.jpg";
 
-const Nav = ({token}) => {
-    let decoded = jwt_decode(token)
+const useStyles = makeStyles(theme => ({
+  logo: {
+    maxWidth: 60
+  }
+}));
 
-    const handleLogout =() => {
-        sessionStorage.clear()
-        window.location.href = './'
-      }
+const Nav = ({user}) => {
+  // const newInitials = userInitial.toUpperCase()
 
-    const renderNav = () => {
-        return (
-                <div className='nav_menu'>
-                <ul>
-                    <li className='nav-link'>
-                        <Link to="/home">
-                            Home
-                        </Link>
-                    </li>
+  const [userInitial, setUserInitial] = useState('R')
 
-                {decoded.role === 'admin' && (
-                    <Fragment>
-                        <li className="nav-item">
-                        <Link to="/tasks" className="nav-link">Tasks</Link>
-                        </li>
-                        <li className="nav-item">
-                        <Link to="/users" className="nav-link">Users</Link>
-                        </li>
-                        <li className="nav-item">
-                        <Link to="/settings" className="nav-link">Settings</Link>
-                        </li>
-                    </Fragment>
-                )}
+  useEffect(() => {
+    setUserInitial(user.username[0])
+  }, [user.username])
 
-                {decoded.role === 'User' && (
-                    <Fragment>
-                        <li className="nav-item">
-                        <Link to="/tasks" className="nav-link">Tasks</Link>
-                        </li> 
-                        <li className="nav-item">
-                        <Link to="/settings" className="nav-link">Settings</Link>
-                        </li>
-                    </Fragment>
-                )}
+  const handleLogout = () => {
+    sessionStorage.clear();
+    window.location.href = "./";
+  };
 
-                    <li className="nav_logout">
-                        <button className='logout' onClick={handleLogout}>Logout</button>
-                    </li>
-            </ul>       
-            </div>     
-        )
-    }
+  const renderNav = () => {
+    const [anchorElUser, setAnchorElUser] = useState(null);
+    const classes = useStyles();
+
+    const handleOpenUserMenu = event => {
+      setAnchorElUser(event.currentTarget);
+    };
+
+    const handleCloseUserMenu = () => {
+      setAnchorElUser(null);
+    };
 
     return (
+      <AppBar position="static" style={{ background: "white" }}>
+        <Container
+          maxWidth="xl"
+          sx={{ mx: 2, display: "flex", justifyContent: "space-between" }}
+        >
+          <Typography
+            variant="h6"
+            noWrap
+            component="div"
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center"
+            }}
+          >
+            <img src={landinglogo} alt="scroll" className={classes.logo} />
+          </Typography>
+          <Toolbar>
+            <Box>
+              <Tooltip title="Open settings">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <Avatar sx={{ bgcolor: "#6c63ff" }}>{userInitial}</Avatar>
+                </IconButton>
+              </Tooltip>
+              <Menu
+                sx={{ mt: "45px" }}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right"
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right"
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+              >
+                <MenuItem>
+                  <Typography textAlign="center">
+                    <Link
+                      style={{ color: "black", textDecoration: "none" }}
+                      to="/home"
+                    >
+                      Home
+                    </Link>
+                  </Typography>
+                </MenuItem>
+                <MenuItem>
+                  <Typography textAlign="center">
+                    <Link
+                      style={{ color: "black", textDecoration: "none" }}
+                      to="/settings"
+                    >
+                      Settings
+                    </Link>
+                  </Typography>
+                </MenuItem>
+                <MenuItem onClick={handleLogout}>
+                  <Typography textAlign="center">Logout</Typography>
+                </MenuItem>
+              </Menu>
+            </Box>
+          </Toolbar>
+        </Container>
+      </AppBar>
+    );
+  };
 
-    <Fragment>
-        {renderNav()}
-    </Fragment>
-    )
-}
+  return <Fragment>{renderNav()}</Fragment>;
+};
 
-export default Nav
+export default Nav;

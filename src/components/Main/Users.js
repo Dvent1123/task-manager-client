@@ -9,7 +9,7 @@ import Nav from "../Main/Nav";
 import useToken from "../../utils/useToken";
 import jwt_decode from "jwt-decode";
 import { SocketContext } from "../../services/socketService";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 const generator = require("generate-password");
 
@@ -56,7 +56,6 @@ const Users = () => {
       jwt_decode(realToken.current).roomId,
       jwt_decode(realToken.current).username
     );
-
 
     setUser({
       ...user,
@@ -179,7 +178,6 @@ const Users = () => {
 
   return (
     <div className="wrapper">
-      <ToastContainer />
       <Nav token={realToken.current} />
       <div className="container">
         <section className="whole-section-containers">

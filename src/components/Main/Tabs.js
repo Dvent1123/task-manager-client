@@ -3,7 +3,7 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
 import TaskTab from "./TaskTab";
-import UserTab from "./UserTab"
+import UserTab from "./UserTab";
 
 function a11yProps(index) {
   return {
@@ -12,7 +12,7 @@ function a11yProps(index) {
   };
 }
 
-export default function BasicTabs() {
+export default function BasicTabs({ token, user, socket }) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
@@ -36,7 +36,9 @@ export default function BasicTabs() {
           aria-label="basic tabs example"
         >
           <Tab label="Tasks" {...a11yProps(0)} />
-          <Tab label="Users" {...a11yProps(1)} />
+          {user.role === "admin" ? (
+            <Tab label="Users" {...a11yProps(1)} />
+          ) : null}
         </Tabs>
       </Box>
       <Box
@@ -49,11 +51,11 @@ export default function BasicTabs() {
       >
         {value === 0 ? (
           <Box sx={{ width: "100%", p: 3 }}>
-            <TaskTab />
+            <TaskTab user={user} token={token} socket={socket} />
           </Box>
         ) : (
           <Box sx={{ width: "100%", p: 3 }}>
-              <UserTab />
+            <UserTab token={token} user={user} socket={socket} />
           </Box>
         )}
       </Box>
