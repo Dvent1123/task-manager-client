@@ -33,7 +33,7 @@ const HomeNav = ({ user }) => {
     window.location.href = "./";
   };
 
-  const renderNav = () => {
+  const RenderNav = () => {
     const [anchorElUser, setAnchorElUser] = useState(null);
     const classes = useStyles();
 
@@ -119,7 +119,7 @@ const HomeNav = ({ user }) => {
     );
   };
 
-  return <Fragment>{renderNav()}</Fragment>;
+  return <Fragment>{RenderNav()}</Fragment>;
 };
 
 export default HomeNav;
