@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Home_Nav = ({ user }) => {
+const HomeNav = ({ user }) => {
   // const newInitials = userInitial.toUpperCase()
 
   const [userInitial, setUserInitial] = useState("R");
@@ -122,4 +122,4 @@ const Home_Nav = ({ user }) => {
   return <Fragment>{renderNav()}</Fragment>;
 };
 
-export default Home_Nav;
+export default HomeNav;

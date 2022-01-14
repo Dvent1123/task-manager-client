@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const Landing_Nav = () => {
+const LandingNav = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const classes = useStyles();
 
@@ -139,4 +139,4 @@ const Landing_Nav = () => {
     </AppBar>
   );
 };
-export default Landing_Nav;
+export default LandingNav;
