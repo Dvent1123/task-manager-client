@@ -2,7 +2,7 @@ import React from "react";
 import mainLandingImage from "../../assets/main_image.svg";
 import tasksImage from "../../assets/tasks.svg";
 import landinglogo from "../../assets/logo512.jpg";
-import LandingNav from "../Navs/Landing_Nav";
+import LandingNav from "../Navs/LandingNav";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";

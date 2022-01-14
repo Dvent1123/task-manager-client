@@ -6,7 +6,7 @@ import Container from "@mui/material/Container";
 import SettingsForm from "./SettingsForm";
 import { getUser } from "../../services/user";
 import { ToastContainer, toast } from "react-toastify";
-import HomeNav from '../Navs/Home_Nav'
+import HomeNav from '../Navs/HomeNav'
 import "react-toastify/dist/ReactToastify.min.css";
 
 const Settings = () => {

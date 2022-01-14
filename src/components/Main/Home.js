@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 import useToken from "../../utils/useToken";
 import jwt_decode from "jwt-decode";
 import { SocketContext } from "../../services/socket";
-import HomeNav from "../Navs/Home_Nav";
+import HomeNav from "../Navs/HomeNav";
 import Tabs from "../Tabs/Tabs";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
